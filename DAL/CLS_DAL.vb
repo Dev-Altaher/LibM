@@ -58,20 +58,25 @@ Namespace LibM.DAL
         ' وظيفة لتنفيذ إجراءات مثل الإضافة، التعديل، أو الحذف باستخدام إجراء مخزن
         ' store: اسم الإجراء المخزن
         ' pr: قائمة بالمعاملات (Parameters) التي سيتم تمريرها للإجراء
-        Public Sub Excute(store As String, pr As SqlParameter())
-            ' إنشاء أمر SQL Command
+        Public Sub Execute(store As String, pr() As SqlParameter)
             Dim cmd As New SqlCommand()
             cmd.Connection = con ' تعيين الاتصال
-            cmd.CommandType = CommandType.StoredProcedure ' نوع الأمر هو إجراء مخزن
+            cmd.CommandType = CommandType.StoredProcedure ' نوع الأمر (إجراء مخزن)
             cmd.CommandText = store ' اسم الإجراء المخزن
 
-            ' إضافة المعاملات إذا وُجدت
-            If pr IsNot Nothing Then
+            ' التحقق من المعاملات قبل إضافتها
+            If pr IsNot Nothing AndAlso pr.Length > 0 Then
                 cmd.Parameters.AddRange(pr)
+            Else
+                MessageBox.Show("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
             End If
 
             ' تنفيذ الأمر (الإجراء المخزن)
-            cmd.ExecuteNonQuery()
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As SqlException
+                MessageBox.Show("حدث خطأ أثناء تنفيذ الإجراء المخزن: " & ex.Message)
+            End Try
         End Sub
     End Class
 End Namespace

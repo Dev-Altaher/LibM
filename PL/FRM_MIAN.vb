@@ -14,7 +14,7 @@ Public Class FRM_MIAN
     Dim ID As Integer
     Dim BLCAT As New CLS_CAT()
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
-        Environment.Exit(0)
+        Application.Exit()
 
     End Sub
 
