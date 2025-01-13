@@ -31,11 +31,11 @@ Partial Class FRM_ERRORINSERT
         '
         Me.Lb_Title.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Lb_Title.AutoSize = True
-        Me.Lb_Title.Font = New System.Drawing.Font("Wide Latin", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lb_Title.Font = New System.Drawing.Font("Wide Latin", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lb_Title.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Lb_Title.Location = New System.Drawing.Point(313, 275)
+        Me.Lb_Title.Location = New System.Drawing.Point(110, 293)
         Me.Lb_Title.Name = "Lb_Title"
-        Me.Lb_Title.Size = New System.Drawing.Size(326, 42)
+        Me.Lb_Title.Size = New System.Drawing.Size(411, 52)
         Me.Lb_Title.TabIndex = 5
         Me.Lb_Title.Text = "اكمل متطلبات الادخال اولا"
         '
@@ -49,13 +49,13 @@ Partial Class FRM_ERRORINSERT
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(912, 690)
+        Me.ClientSize = New System.Drawing.Size(667, 580)
         Me.Controls.Add(Me.Lb_Title)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FRM_ERRORINSERT"
         Me.Opacity = 0.85R
         Me.Text = "FRM_ERRORINSERT"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

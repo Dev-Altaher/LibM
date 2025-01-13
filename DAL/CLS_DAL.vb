@@ -66,9 +66,17 @@ Namespace LibM.DAL
 
             ' التحقق من المعاملات قبل إضافتها
             If pr IsNot Nothing AndAlso pr.Length > 0 Then
-                cmd.Parameters.AddRange(pr)
+                For Each param As SqlParameter In pr
+                    If param IsNot Nothing Then
+                        cmd.Parameters.Add(param)
+                    Else
+                        'MessageBox.Show("One of the SqlParameter objects is null.")
+                        'Return
+                    End If
+                Next
             Else
                 MessageBox.Show("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
+                Return
             End If
 
             ' تنفيذ الأمر (الإجراء المخزن)
@@ -78,5 +86,6 @@ Namespace LibM.DAL
                 MessageBox.Show("حدث خطأ أثناء تنفيذ الإجراء المخزن: " & ex.Message)
             End Try
         End Sub
+
     End Class
 End Namespace

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FRM_DADD
+Partial Class FRM_DDELETE
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,9 +23,14 @@ Partial Class FRM_DADD
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Lb_Title = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Lb_Title = New System.Windows.Forms.Label()
         Me.SuspendLayout()
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 2000
         '
         'Lb_Title
         '
@@ -33,37 +38,29 @@ Partial Class FRM_DADD
         Me.Lb_Title.AutoSize = True
         Me.Lb_Title.Font = New System.Drawing.Font("Wide Latin", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lb_Title.ForeColor = System.Drawing.Color.White
-        Me.Lb_Title.Location = New System.Drawing.Point(343, 233)
+        Me.Lb_Title.Location = New System.Drawing.Point(300, 268)
         Me.Lb_Title.Name = "Lb_Title"
-        Me.Lb_Title.Size = New System.Drawing.Size(243, 42)
+        Me.Lb_Title.Size = New System.Drawing.Size(201, 42)
         Me.Lb_Title.TabIndex = 5
-        Me.Lb_Title.Text = "تمت الاضافة بنجاح"
+        Me.Lb_Title.Text = "تم الحذف بنجاح"
         '
-        'Timer1
+        'FRM_DDELETE
         '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 2000
-        '
-        'FRM_DADD
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 30.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(948, 595)
+        Me.ClientSize = New System.Drawing.Size(850, 598)
         Me.Controls.Add(Me.Lb_Title)
-        Me.Font = New System.Drawing.Font("Tahoma", 15.0!)
-        Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(6)
-        Me.Name = "FRM_DADD"
+        Me.Name = "FRM_DDELETE"
         Me.Opacity = 0.85R
-        Me.Text = "FRM_DADD"
+        Me.Text = "FRM_DDELETE"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Lb_Title As Label
     Private WithEvents Timer1 As Timer
+    Friend WithEvents Lb_Title As Label
 End Class

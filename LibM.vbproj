@@ -121,6 +121,12 @@
     <Compile Include="PL\FRM_DADD.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PL\FRM_DDELETE.Designer.vb">
+      <DependentUpon>FRM_DDELETE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_DDELETE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PL\FRM_DEDIT.Designer.vb">
       <DependentUpon>FRM_DEDIT.vb</DependentUpon>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_DADD.resx">
       <DependentUpon>FRM_DADD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_DDELETE.resx">
+      <DependentUpon>FRM_DDELETE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_DEDIT.resx">
       <DependentUpon>FRM_DEDIT.vb</DependentUpon>

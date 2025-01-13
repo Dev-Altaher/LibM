@@ -9,7 +9,11 @@ Imports System.Threading.Tasks
 Imports System.Windows.Forms
 Imports System.IO
 Imports LibM.LibM.BL
+Imports Bunifu.Framework.UI
 Public Class FRM_MIAN
+
+    Private PlaceholderTexts As New Dictionary(Of BunifuMaterialTextbox, String)
+
     Dim State As String
     Dim ID As Integer
     Dim BLCAT As New CLS_CAT()
@@ -75,9 +79,53 @@ Public Class FRM_MIAN
     End Sub
 
     Private Sub FRM_MIAN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AddPlaceholder(BunifuMaterialTextbox1, "تأكيد كلمة المرور")
+
+        ' تعيين النصوص المؤقتة لجميع مربعات النص
+        For Each txtBox As BunifuMaterialTextbox In PlaceholderTexts.Keys
+            SetPlaceholder(txtBox)
+        Next
         P_HOME.Visible = True
         P_MAIN.Visible = False
         Lb_Title.Text = "الرئيسية"
+    End Sub
+    Private Sub AddPlaceholder(txtBox As BunifuMaterialTextbox, placeholder As String)
+        If Not PlaceholderTexts.ContainsKey(txtBox) Then
+            PlaceholderTexts.Add(txtBox, placeholder)
+        Else
+            PlaceholderTexts(txtBox) = placeholder
+        End If
+    End Sub
+
+    ' تعيين النص المؤقت لمربع النص
+    Private Sub SetPlaceholder(txtBox As BunifuMaterialTextbox)
+        If PlaceholderTexts.ContainsKey(txtBox) Then
+            txtBox.Text = PlaceholderTexts(txtBox)
+            txtBox.ForeColor = Drawing.Color.Gray ' النص المؤقت يكون رمادي اللون
+        End If
+    End Sub
+
+    ' التعامل مع التركيز على BunifuTextBox (إزالة النص المؤقت)
+    Private Sub BunifuMaterialTextbox_GotFocus(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.GotFocus
+        Dim txtBox As BunifuMaterialTextbox = DirectCast(sender, BunifuMaterialTextbox)
+        If PlaceholderTexts.ContainsKey(txtBox) AndAlso txtBox.Text = PlaceholderTexts(txtBox) Then
+            txtBox.Text = ""
+            txtBox.ForeColor = Drawing.Color.Black ' إعادة النص إلى اللون الطبيعي
+        End If
+    End Sub
+
+    ' التعامل مع فقدان التركيز على BunifuTextBox (إعادة النص المؤقت)
+    Private Sub BunifuMaterialTextbox_LostFocus(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.LostFocus
+        Dim txtBox As BunifuMaterialTextbox = DirectCast(sender, BunifuMaterialTextbox)
+        If PlaceholderTexts.ContainsKey(txtBox) AndAlso String.IsNullOrWhiteSpace(txtBox.Text) Then
+            SetPlaceholder(txtBox)
+        End If
+    End Sub
+
+    ' تطبيق النص المؤقت لمربع النص
+    Public Sub ApplyPlaceholder(txtBox As BunifuMaterialTextbox, placeholder As String)
+        AddPlaceholder(txtBox, placeholder)
+        SetPlaceholder(txtBox)
     End Sub
 
     Private Sub BunifuThinButton21_Click(sender As Object, e As EventArgs) Handles BunifuThinButton21.Click
@@ -121,4 +169,30 @@ Public Class FRM_MIAN
             FCAT.Show()
         End If
     End Sub
+
+    Private Sub BunifuThinButton23_Click(sender As Object, e As EventArgs) Handles BunifuThinButton23.Click
+        ' حذف فئة
+        If State = "CAT" Then
+            BLCAT.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")
+
+        End If
+    End Sub
+    Private Sub bunifuMaterialTextbox1_OnValueChanged(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.OnValueChanged
+        If State = "CAT" Then
+            Dim inputText As String = BunifuMaterialTextbox1.Text.Trim()
+
+            ' التأكد من أن النص غير فارغ
+            If Not String.IsNullOrEmpty(inputText) Then
+                Dim dt As New DataTable()
+                dt = BLCAT.serach(inputText) ' إرسال النص إلى الدالة
+                DataGridView1.DataSource = dt
+            Else
+                'MessageBox.Show("يرجى إدخال اسم للبحث.", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
+    End Sub
+
 End Class

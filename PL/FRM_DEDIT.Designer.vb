@@ -33,11 +33,11 @@ Partial Class FRM_DEDIT
         Me.Lb_Title.AutoSize = True
         Me.Lb_Title.Font = New System.Drawing.Font("Wide Latin", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lb_Title.ForeColor = System.Drawing.Color.White
-        Me.Lb_Title.Location = New System.Drawing.Point(327, 292)
+        Me.Lb_Title.Location = New System.Drawing.Point(184, 265)
         Me.Lb_Title.Name = "Lb_Title"
-        Me.Lb_Title.Size = New System.Drawing.Size(243, 42)
+        Me.Lb_Title.Size = New System.Drawing.Size(203, 42)
         Me.Lb_Title.TabIndex = 4
-        Me.Lb_Title.Text = "تمت الاضافة بنجاح"
+        Me.Lb_Title.Text = "تم التعديل بنجاح"
         '
         'Timer1
         '
@@ -49,13 +49,13 @@ Partial Class FRM_DEDIT
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(896, 626)
+        Me.ClientSize = New System.Drawing.Size(650, 591)
         Me.Controls.Add(Me.Lb_Title)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FRM_DEDIT"
         Me.Opacity = 0.85R
         Me.Text = "FRM_DEDIT"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
