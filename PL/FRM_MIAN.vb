@@ -17,6 +17,7 @@ Public Class FRM_MIAN
     Dim State As String
     Dim ID As Integer
     Dim BLCAT As New CLS_CAT()
+    Dim BLBOOKS As New CLS_BOOKS()
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
         Application.Exit()
 
@@ -59,6 +60,7 @@ Public Class FRM_MIAN
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         P_HOME.Visible = False
         P_MAIN.Visible = True
+        BunifuThinButton24.Visible = False
         State = "CAT"
         Lb_Title.Text = "الاصناف"
 
@@ -79,55 +81,10 @@ Public Class FRM_MIAN
     End Sub
 
     Private Sub FRM_MIAN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        AddPlaceholder(BunifuMaterialTextbox1, "تأكيد كلمة المرور")
-
-        ' تعيين النصوص المؤقتة لجميع مربعات النص
-        For Each txtBox As BunifuMaterialTextbox In PlaceholderTexts.Keys
-            SetPlaceholder(txtBox)
-        Next
         P_HOME.Visible = True
         P_MAIN.Visible = False
         Lb_Title.Text = "الرئيسية"
     End Sub
-    Private Sub AddPlaceholder(txtBox As BunifuMaterialTextbox, placeholder As String)
-        If Not PlaceholderTexts.ContainsKey(txtBox) Then
-            PlaceholderTexts.Add(txtBox, placeholder)
-        Else
-            PlaceholderTexts(txtBox) = placeholder
-        End If
-    End Sub
-
-    ' تعيين النص المؤقت لمربع النص
-    Private Sub SetPlaceholder(txtBox As BunifuMaterialTextbox)
-        If PlaceholderTexts.ContainsKey(txtBox) Then
-            txtBox.Text = PlaceholderTexts(txtBox)
-            txtBox.ForeColor = Drawing.Color.Gray ' النص المؤقت يكون رمادي اللون
-        End If
-    End Sub
-
-    ' التعامل مع التركيز على BunifuTextBox (إزالة النص المؤقت)
-    Private Sub BunifuMaterialTextbox_GotFocus(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.GotFocus
-        Dim txtBox As BunifuMaterialTextbox = DirectCast(sender, BunifuMaterialTextbox)
-        If PlaceholderTexts.ContainsKey(txtBox) AndAlso txtBox.Text = PlaceholderTexts(txtBox) Then
-            txtBox.Text = ""
-            txtBox.ForeColor = Drawing.Color.Black ' إعادة النص إلى اللون الطبيعي
-        End If
-    End Sub
-
-    ' التعامل مع فقدان التركيز على BunifuTextBox (إعادة النص المؤقت)
-    Private Sub BunifuMaterialTextbox_LostFocus(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.LostFocus
-        Dim txtBox As BunifuMaterialTextbox = DirectCast(sender, BunifuMaterialTextbox)
-        If PlaceholderTexts.ContainsKey(txtBox) AndAlso String.IsNullOrWhiteSpace(txtBox.Text) Then
-            SetPlaceholder(txtBox)
-        End If
-    End Sub
-
-    ' تطبيق النص المؤقت لمربع النص
-    Public Sub ApplyPlaceholder(txtBox As BunifuMaterialTextbox, placeholder As String)
-        AddPlaceholder(txtBox, placeholder)
-        SetPlaceholder(txtBox)
-    End Sub
-
     Private Sub BunifuThinButton21_Click(sender As Object, e As EventArgs) Handles BunifuThinButton21.Click
         ' إضافة فئة
         If State = "CAT" Then
@@ -137,8 +94,15 @@ Public Class FRM_MIAN
             BunifuTransition1.ShowSync(FCAT)
             FCAT.Show()
         End If
+        'اضافة كتاب
+        If State = "BOOKS" Then
+            Dim FBOOKS As New FRM_ADDBOKKS()
+            FBOOKS.btnadd.ButtonText = "اضافة"
+            FBOOKS.ID = 0
+            BunifuTransition1.ShowSync(FBOOKS)
+            FBOOKS.Show()
+        End If
     End Sub
-
     Private Sub FRM_MIAN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         If State = "CAT" Then
             ' معالجة الاستثناءات
@@ -152,6 +116,23 @@ Public Class FRM_MIAN
                 DataGridView1.Columns(0).HeaderText = "التسلسل"
                 DataGridView1.Columns(1).HeaderText = "اسم الصنف"
 
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf State = "BOOKS" Then
+            ' معالجة الاستثناءات
+            Try
+                ' تحميل البيانات
+                Dim dt As New DataTable()
+                dt = BLBOOKS.Load()
+                DataGridView1.DataSource = dt
+
+                ' تغيير عناوين الأعمدة
+                DataGridView1.Columns(0).HeaderText = "التسلسل"
+                DataGridView1.Columns(1).HeaderText = "اسم الكتاب"
+                DataGridView1.Columns(2).HeaderText = "اسم المؤلف"
+                DataGridView1.Columns(3).HeaderText = "التصنيف"
+                DataGridView1.Columns(4).HeaderText = "السعر"
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
@@ -195,4 +176,28 @@ Public Class FRM_MIAN
         End If
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        P_HOME.Visible = False
+        P_MAIN.Visible = True
+        BunifuThinButton24.Visible = True
+        State = "BOOKS"
+        Lb_Title.Text = "الكتب"
+
+        ' معالجة الاستثناءات
+        Try
+            ' تحميل البيانات
+            Dim dt As New DataTable()
+            dt = BLBOOKS.Load()
+            DataGridView1.DataSource = dt
+
+            ' تغيير عناوين الأعمدة
+            DataGridView1.Columns(0).HeaderText = "التسلسل"
+            DataGridView1.Columns(1).HeaderText = "اسم الكتاب"
+            DataGridView1.Columns(2).HeaderText = "اسم المؤلف"
+            DataGridView1.Columns(3).HeaderText = "التصنيف"
+            DataGridView1.Columns(4).HeaderText = "السعر"
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class

@@ -92,6 +92,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\CLS_BOOKS.vb" />
     <Compile Include="BL\CLS_CAT.vb" />
     <Compile Include="DAL\CLS_DAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -108,6 +109,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PL\FRM_ADDBOKKS.Designer.vb">
+      <DependentUpon>FRM_ADDBOKKS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_ADDBOKKS.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FRM_ADDCAT.Designer.vb">
       <DependentUpon>FRM_ADDCAT.vb</DependentUpon>
@@ -152,6 +159,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_ADDBOKKS.resx">
+      <DependentUpon>FRM_ADDBOKKS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_ADDCAT.resx">
       <DependentUpon>FRM_ADDCAT.vb</DependentUpon>

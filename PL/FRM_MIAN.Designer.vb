@@ -754,7 +754,7 @@ Partial Class FRM_MIAN
         Me.BunifuThinButton24.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.BunifuThinButton24.BackColor = System.Drawing.Color.White
         Me.BunifuThinButton24.BackgroundImage = CType(resources.GetObject("BunifuThinButton24.BackgroundImage"), System.Drawing.Image)
-        Me.BunifuThinButton24.ButtonText = "تاصيل"
+        Me.BunifuThinButton24.ButtonText = "تفاصيل"
         Me.BunifuThinButton24.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BunifuTransition1.SetDecoration(Me.BunifuThinButton24, BunifuAnimatorNS.DecorationType.None)
         Me.BunifuThinButton24.Font = New System.Drawing.Font("Century Gothic", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -881,6 +881,7 @@ Partial Class FRM_MIAN
         Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
         Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(384, 40)
         Me.BunifuMaterialTextbox1.TabIndex = 0
+        Me.BunifuMaterialTextbox1.Text = "ابحث هنا"
         Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'BunifuElipse1
