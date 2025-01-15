@@ -17,7 +17,7 @@ Public Class FRM_ADDBOKKS
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Dim OFD As New OpenFileDialog()
         If OFD.ShowDialog() = DialogResult.OK Then
-            PictureBox1.Image = Image.FromFile(OFD.FileName)
+            cover.Image = Image.FromFile(OFD.FileName)
         End If
 
     End Sub
@@ -45,5 +45,42 @@ Public Class FRM_ADDBOKKS
         FCAT.btnadd.ButtonText = "اضافة"
         FCAT.ID = 0
         FCAT.Show()
+    End Sub
+
+    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        If txt_title.Text = "" Or txt_auther.Text = "" Or txt_price.Text = "" Then
+            Dim FError As New FRM_ERRORINSERT()
+            FError.ShowDialog()
+        Else
+            Dim bDate As Object
+            If txt_date.Text = "" Then
+                bDate = Nothing ' or a default date value like DateTime.Now
+            Else
+                bDate = txt_date.Value
+            End If
+
+            Dim ma As New MemoryStream()
+            cover.Image.Save(ma, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+            If ID = 0 Then
+                ' إضافة بيانات جديدة
+                Dim BLCAT As New BL.CLS_BOOKS()
+                BLCAT.Insert(txt_title.Text, txt_auther.Text, ComboBox1.Text, txt_price.Text, If(bDate Is Nothing, "", bDate.ToString()), txt_rate.Value, ma)
+
+
+                Dim Fadd As New FRM_DADD()
+                Fadd.Show()
+                Me.Close()
+            Else
+                Dim maUpdate As New MemoryStream()
+                cover.Image.Save(maUpdate, System.Drawing.Imaging.ImageFormat.Jpeg)
+                ' تحديث بيانات موجودة
+                Dim BLCAT As New BL.CLS_BOOKS()
+                BLCAT.Update(txt_title.Text, txt_auther.Text, ComboBox1.Text, txt_price.Text, If(bDate Is Nothing, "", bDate.ToString()), txt_rate.Value, maUpdate, ID)
+                Dim FEdit As New FRM_DEDIT()
+                FEdit.Show()
+                Me.Close()
+            End If
+        End If
     End Sub
 End Class

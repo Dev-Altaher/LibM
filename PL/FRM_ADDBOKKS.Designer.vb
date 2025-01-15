@@ -26,28 +26,28 @@ Partial Class FRM_ADDBOKKS
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FRM_ADDBOKKS))
         Me.btnadd = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.BunifuMaterialTextbox3 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.txt_price = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.txt_auther = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txt_catname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.txt_title = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Lb_Title = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.BunifuRating1 = New Bunifu.Framework.UI.BunifuRating()
-        Me.BunifuDatepicker1 = New Bunifu.Framework.UI.BunifuDatepicker()
+        Me.cover = New System.Windows.Forms.PictureBox()
+        Me.txt_rate = New Bunifu.Framework.UI.BunifuRating()
+        Me.txt_date = New Bunifu.Framework.UI.BunifuDatepicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.BunifuImageButton1 = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cover, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -81,12 +81,12 @@ Partial Class FRM_ADDBOKKS
         '
         Me.GroupBox1.Controls.Add(Me.LinkLabel2)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.BunifuMaterialTextbox3)
+        Me.GroupBox1.Controls.Add(Me.txt_price)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.BunifuMaterialTextbox1)
+        Me.GroupBox1.Controls.Add(Me.txt_auther)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.txt_catname)
+        Me.GroupBox1.Controls.Add(Me.txt_title)
         Me.GroupBox1.Controls.Add(Me.Lb_Title)
         Me.GroupBox1.Location = New System.Drawing.Point(500, 12)
         Me.GroupBox1.Name = "GroupBox1"
@@ -94,6 +94,16 @@ Partial Class FRM_ADDBOKKS
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "المعلومات الاساسية"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(383, 405)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(68, 29)
+        Me.LinkLabel2.TabIndex = 15
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "اضافة"
         '
         'ComboBox1
         '
@@ -103,25 +113,25 @@ Partial Class FRM_ADDBOKKS
         Me.ComboBox1.Size = New System.Drawing.Size(368, 36)
         Me.ComboBox1.TabIndex = 14
         '
-        'BunifuMaterialTextbox3
+        'txt_price
         '
-        Me.BunifuMaterialTextbox3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.BunifuMaterialTextbox3.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuMaterialTextbox3.Font = New System.Drawing.Font("Century Gothic", 15.0!)
-        Me.BunifuMaterialTextbox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.BunifuMaterialTextbox3.HintForeColor = System.Drawing.Color.Empty
-        Me.BunifuMaterialTextbox3.HintText = ""
-        Me.BunifuMaterialTextbox3.isPassword = False
-        Me.BunifuMaterialTextbox3.LineFocusedColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox3.LineIdleColor = System.Drawing.Color.Gray
-        Me.BunifuMaterialTextbox3.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox3.LineThickness = 4
-        Me.BunifuMaterialTextbox3.Location = New System.Drawing.Point(43, 494)
-        Me.BunifuMaterialTextbox3.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
-        Me.BunifuMaterialTextbox3.Name = "BunifuMaterialTextbox3"
-        Me.BunifuMaterialTextbox3.Size = New System.Drawing.Size(368, 46)
-        Me.BunifuMaterialTextbox3.TabIndex = 12
-        Me.BunifuMaterialTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt_price.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.txt_price.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt_price.Font = New System.Drawing.Font("Century Gothic", 15.0!)
+        Me.txt_price.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txt_price.HintForeColor = System.Drawing.Color.Empty
+        Me.txt_price.HintText = ""
+        Me.txt_price.isPassword = False
+        Me.txt_price.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txt_price.LineIdleColor = System.Drawing.Color.Gray
+        Me.txt_price.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txt_price.LineThickness = 4
+        Me.txt_price.Location = New System.Drawing.Point(43, 494)
+        Me.txt_price.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txt_price.Name = "txt_price"
+        Me.txt_price.Size = New System.Drawing.Size(368, 46)
+        Me.txt_price.TabIndex = 12
+        Me.txt_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -145,25 +155,25 @@ Partial Class FRM_ADDBOKKS
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "صنف الكتاب"
         '
-        'BunifuMaterialTextbox1
+        'txt_auther
         '
-        Me.BunifuMaterialTextbox1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 15.0!)
-        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty
-        Me.BunifuMaterialTextbox1.HintText = ""
-        Me.BunifuMaterialTextbox1.isPassword = False
-        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray
-        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox1.LineThickness = 4
-        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(43, 245)
-        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
-        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
-        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(368, 46)
-        Me.BunifuMaterialTextbox1.TabIndex = 8
-        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt_auther.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.txt_auther.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt_auther.Font = New System.Drawing.Font("Century Gothic", 15.0!)
+        Me.txt_auther.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txt_auther.HintForeColor = System.Drawing.Color.Empty
+        Me.txt_auther.HintText = ""
+        Me.txt_auther.isPassword = False
+        Me.txt_auther.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txt_auther.LineIdleColor = System.Drawing.Color.Gray
+        Me.txt_auther.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txt_auther.LineThickness = 4
+        Me.txt_auther.Location = New System.Drawing.Point(43, 245)
+        Me.txt_auther.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txt_auther.Name = "txt_auther"
+        Me.txt_auther.Size = New System.Drawing.Size(368, 46)
+        Me.txt_auther.TabIndex = 8
+        Me.txt_auther.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -176,25 +186,25 @@ Partial Class FRM_ADDBOKKS
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "اسم المؤلف"
         '
-        'txt_catname
+        'txt_title
         '
-        Me.txt_catname.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.txt_catname.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txt_catname.Font = New System.Drawing.Font("Century Gothic", 15.0!)
-        Me.txt_catname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txt_catname.HintForeColor = System.Drawing.Color.Empty
-        Me.txt_catname.HintText = ""
-        Me.txt_catname.isPassword = False
-        Me.txt_catname.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txt_catname.LineIdleColor = System.Drawing.Color.Gray
-        Me.txt_catname.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txt_catname.LineThickness = 4
-        Me.txt_catname.Location = New System.Drawing.Point(43, 109)
-        Me.txt_catname.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
-        Me.txt_catname.Name = "txt_catname"
-        Me.txt_catname.Size = New System.Drawing.Size(368, 46)
-        Me.txt_catname.TabIndex = 7
-        Me.txt_catname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt_title.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.txt_title.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt_title.Font = New System.Drawing.Font("Century Gothic", 15.0!)
+        Me.txt_title.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txt_title.HintForeColor = System.Drawing.Color.Empty
+        Me.txt_title.HintText = ""
+        Me.txt_title.isPassword = False
+        Me.txt_title.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txt_title.LineIdleColor = System.Drawing.Color.Gray
+        Me.txt_title.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txt_title.LineThickness = 4
+        Me.txt_title.Location = New System.Drawing.Point(43, 109)
+        Me.txt_title.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txt_title.Name = "txt_title"
+        Me.txt_title.Size = New System.Drawing.Size(368, 46)
+        Me.txt_title.TabIndex = 7
+        Me.txt_title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Lb_Title
         '
@@ -210,9 +220,9 @@ Partial Class FRM_ADDBOKKS
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.LinkLabel1)
-        Me.GroupBox2.Controls.Add(Me.PictureBox1)
-        Me.GroupBox2.Controls.Add(Me.BunifuRating1)
-        Me.GroupBox2.Controls.Add(Me.BunifuDatepicker1)
+        Me.GroupBox2.Controls.Add(Me.cover)
+        Me.GroupBox2.Controls.Add(Me.txt_rate)
+        Me.GroupBox2.Controls.Add(Me.txt_date)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label7)
@@ -233,41 +243,41 @@ Partial Class FRM_ADDBOKKS
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "تحميل غلاف"
         '
-        'PictureBox1
+        'cover
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(271, 372)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(152, 149)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 14
-        Me.PictureBox1.TabStop = False
+        Me.cover.Image = CType(resources.GetObject("cover.Image"), System.Drawing.Image)
+        Me.cover.Location = New System.Drawing.Point(271, 372)
+        Me.cover.Name = "cover"
+        Me.cover.Size = New System.Drawing.Size(152, 149)
+        Me.cover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.cover.TabIndex = 14
+        Me.cover.TabStop = False
         '
-        'BunifuRating1
+        'txt_rate
         '
-        Me.BunifuRating1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuRating1.Font = New System.Drawing.Font("AGA Arabesque Desktop", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.BunifuRating1.ForeColor = System.Drawing.Color.SeaGreen
-        Me.BunifuRating1.Location = New System.Drawing.Point(63, 239)
-        Me.BunifuRating1.Margin = New System.Windows.Forms.Padding(7)
-        Me.BunifuRating1.Name = "BunifuRating1"
-        Me.BunifuRating1.Size = New System.Drawing.Size(371, 61)
-        Me.BunifuRating1.TabIndex = 13
-        Me.BunifuRating1.Value = 0
+        Me.txt_rate.BackColor = System.Drawing.Color.Transparent
+        Me.txt_rate.Font = New System.Drawing.Font("AGA Arabesque Desktop", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.txt_rate.ForeColor = System.Drawing.Color.SeaGreen
+        Me.txt_rate.Location = New System.Drawing.Point(63, 239)
+        Me.txt_rate.Margin = New System.Windows.Forms.Padding(7)
+        Me.txt_rate.Name = "txt_rate"
+        Me.txt_rate.Size = New System.Drawing.Size(371, 61)
+        Me.txt_rate.TabIndex = 13
+        Me.txt_rate.Value = 0
         '
-        'BunifuDatepicker1
+        'txt_date
         '
-        Me.BunifuDatepicker1.BackColor = System.Drawing.Color.SeaGreen
-        Me.BunifuDatepicker1.BorderRadius = 0
-        Me.BunifuDatepicker1.ForeColor = System.Drawing.Color.White
-        Me.BunifuDatepicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.BunifuDatepicker1.FormatCustom = Nothing
-        Me.BunifuDatepicker1.Location = New System.Drawing.Point(32, 123)
-        Me.BunifuDatepicker1.Margin = New System.Windows.Forms.Padding(7)
-        Me.BunifuDatepicker1.Name = "BunifuDatepicker1"
-        Me.BunifuDatepicker1.Size = New System.Drawing.Size(406, 49)
-        Me.BunifuDatepicker1.TabIndex = 12
-        Me.BunifuDatepicker1.Value = New Date(2025, 1, 13, 23, 48, 1, 489)
+        Me.txt_date.BackColor = System.Drawing.Color.SeaGreen
+        Me.txt_date.BorderRadius = 0
+        Me.txt_date.ForeColor = System.Drawing.Color.White
+        Me.txt_date.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.txt_date.FormatCustom = Nothing
+        Me.txt_date.Location = New System.Drawing.Point(32, 123)
+        Me.txt_date.Margin = New System.Windows.Forms.Padding(7)
+        Me.txt_date.Name = "txt_date"
+        Me.txt_date.Size = New System.Drawing.Size(406, 49)
+        Me.txt_date.TabIndex = 12
+        Me.txt_date.Value = New Date(2025, 1, 13, 23, 48, 1, 489)
         '
         'Label5
         '
@@ -320,16 +330,6 @@ Partial Class FRM_ADDBOKKS
         Me.BunifuImageButton1.TabStop = False
         Me.BunifuImageButton1.Zoom = 10
         '
-        'LinkLabel2
-        '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(383, 405)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(68, 29)
-        Me.LinkLabel2.TabIndex = 15
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "اضافة"
-        '
         'FRM_ADDBOKKS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 28.0!)
@@ -351,7 +351,7 @@ Partial Class FRM_ADDBOKKS
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cover, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -360,22 +360,22 @@ Partial Class FRM_ADDBOKKS
     Public WithEvents btnadd As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Lb_Title As Label
-    Public WithEvents txt_catname As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Public WithEvents txt_title As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents ComboBox1 As ComboBox
-    Public WithEvents BunifuMaterialTextbox3 As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Public WithEvents txt_price As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Public WithEvents BunifuMaterialTextbox1 As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Public WithEvents txt_auther As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents BunifuRating1 As Bunifu.Framework.UI.BunifuRating
-    Friend WithEvents BunifuDatepicker1 As Bunifu.Framework.UI.BunifuDatepicker
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BunifuElipse1 As Bunifu.Framework.UI.BunifuElipse
     Friend WithEvents BunifuImageButton1 As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents LinkLabel2 As LinkLabel
+    Public WithEvents txt_rate As Bunifu.Framework.UI.BunifuRating
+    Public WithEvents txt_date As Bunifu.Framework.UI.BunifuDatepicker
+    Public WithEvents cover As PictureBox
 End Class

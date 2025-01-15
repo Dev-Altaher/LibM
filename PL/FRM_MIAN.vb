@@ -149,6 +149,47 @@ Public Class FRM_MIAN
             BunifuTransition1.ShowSync(FCAT)
             FCAT.Show()
         End If
+        'تعديل كتاب
+        ' تعديل فئة
+        If State = "CAT" Then
+            Dim FCAT As New FRM_ADDCAT()
+            FCAT.btnadd.ButtonText = "تعديل"
+            FCAT.txt_catname.Text = Convert.ToString(DataGridView1.CurrentRow.Cells(1).Value)
+            FCAT.ID = Convert.ToString(DataGridView1.CurrentRow.Cells(0).Value)
+            BunifuTransition1.ShowSync(FCAT)
+            FCAT.Show()
+            'تعديل كتاب
+        ElseIf State = "BOOKS" Then
+            Dim FBOOKS As New FRM_ADDBOKKS()
+
+            FBOOKS.btnadd.ButtonText = "تعديل"
+            FBOOKS.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+            Try
+
+                Dim dt As New DataTable()
+                dt = BLBOOKS.LOADEDIT(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+                Dim obj1 As Object = dt.Rows(0)("TITLE")
+                Dim obj2 As Object = dt.Rows(0)("AUTHER")
+                Dim obj3 As Object = dt.Rows(0)("CAT")
+                Dim obj4 As Object = dt.Rows(0)("PRICE")
+                Dim obj5 As Object = dt.Rows(0)("BDATE")
+                Dim obj6 As Object = dt.Rows(0)("RATE")
+                Dim obj7 As Object = dt.Rows(0)("COVER")
+                FBOOKS.txt_title.Text = obj1.ToString()
+                FBOOKS.txt_auther.Text = obj2.ToString()
+                FBOOKS.txt_rate.Value = CType(obj6, Integer)
+                Dim ob As Byte() = CType(obj7, Byte())
+                FBOOKS.txt_date.Value = CType(obj5, DateTime)
+                'تحويل البيانات الثنائية إلى صورة
+                Dim ma As New MemoryStream(ob)
+                FBOOKS.cover.Image = Image.FromStream(ma)
+                BunifuTransition1.ShowSync(FBOOKS)
+                FBOOKS.ComboBox1.Text = obj3.ToString()
+                FBOOKS.txt_price.Text = obj4.ToString()
+            Catch ex As Exception
+                ' يمكن وضع التعليمات البرمجية لمعالجة الأخطاء هنا
+            End Try
+        End If
     End Sub
 
     Private Sub BunifuThinButton23_Click(sender As Object, e As EventArgs) Handles BunifuThinButton23.Click
