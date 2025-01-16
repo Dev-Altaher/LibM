@@ -64,5 +64,13 @@ Namespace LibM.BL
             DAL.Execute("PR_EDITBOKKS", pr)
             DAL.close()
         End Sub
+        'حذف سجل موجود
+        Public Sub Delete(ID As Integer)
+            Dim pr As SqlParameter() = New SqlParameter(1) {}
+            pr(0) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("P_DELETEBOOKS", pr)
+            DAL.close()
+        End Sub
     End Class
 End Namespace

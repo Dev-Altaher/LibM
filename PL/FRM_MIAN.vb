@@ -200,6 +200,12 @@ Public Class FRM_MIAN
             Fdelete.Show()
             'MessageBox.Show("تم الحذف بنجاح")
 
+        ElseIf State = "BOOKS" Then
+            'حذف كتاب
+            BLBOOKS.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")
         End If
     End Sub
     Private Sub bunifuMaterialTextbox1_OnValueChanged(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.OnValueChanged
@@ -240,5 +246,58 @@ Public Class FRM_MIAN
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub BunifuThinButton24_Click(sender As Object, e As EventArgs) Handles BunifuThinButton24.Click
+        ' تصدير البيانات
+        If State = "CAT" Then
+            Dim dt As New DataTable()
+            dt = BLCAT.Load()
+            Dim save As New SaveFileDialog()
+            save.Filter = "CSV|*.csv"
+            save.FileName = "Categories.csv"
+            If save.ShowDialog() = DialogResult.OK Then
+                Dim sw As New StreamWriter(save.FileName)
+                For i As Integer = 0 To dt.Columns.Count - 1
+                    sw.Write(dt.Columns(i).ToString().ToUpper() & If(i + 1 < dt.Columns.Count, ",", Environment.NewLine))
+                Next
+                For Each row As DataRow In dt.Rows
+                    For i As Integer = 0 To dt.Columns.Count - 1
+                        sw.Write(row(i).ToString() & If(i + 1 < dt.Columns.Count, ",", Environment.NewLine))
+                    Next
+                Next
+                sw.Close()
+                MessageBox.Show("تم حفظ البيانات بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+        'تفاصيل الكتب
+        If State = "BOOKS" Then
+            Try
+
+                Dim dt As New DataTable()
+                dt = BLBOOKS.LOADEDIT(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+                Dim obj1 As Object = dt.Rows(0)("TITLE")
+                Dim obj2 As Object = dt.Rows(0)("AUTHER")
+                Dim obj3 As Object = dt.Rows(0)("CAT")
+                Dim obj4 As Object = dt.Rows(0)("PRICE")
+                Dim obj5 As Object = dt.Rows(0)("BDATE")
+                Dim obj6 As Object = dt.Rows(0)("RATE")
+                Dim obj7 As Object = dt.Rows(0)("COVER")
+                Dim DETBOOKS As New FRM_DETBOOKS()
+                DETBOOKS.txt_title.Text = obj1.ToString()
+                DETBOOKS.txt_auther.Text = obj2.ToString()
+                DETBOOKS.txt_rate.Value = CType(obj6, Integer)
+                Dim ob As Byte() = CType(obj7, Byte())
+                DETBOOKS.txt_date.Value = CType(obj5, DateTime)
+                'تحويل البيانات الثنائية إلى صورة
+                Dim ma As New MemoryStream(ob)
+                DETBOOKS.cover.Image = Image.FromStream(ma)
+                BunifuTransition1.ShowSync(DETBOOKS)
+                DETBOOKS.txt_cat.Text = obj3.ToString()
+                DETBOOKS.txt_price.Text = obj4.ToString()
+            Catch ex As Exception
+                ' يمكن وضع التعليمات البرمجية لمعالجة الأخطاء هنا
+            End Try
+        End If
     End Sub
 End Class

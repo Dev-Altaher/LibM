@@ -140,6 +140,12 @@
     <Compile Include="PL\FRM_DEDIT.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PL\FRM_DETBOOKS.Designer.vb">
+      <DependentUpon>FRM_DETBOOKS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_DETBOOKS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PL\FRM_ERRORINSERT.Designer.vb">
       <DependentUpon>FRM_ERRORINSERT.vb</DependentUpon>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_DEDIT.resx">
       <DependentUpon>FRM_DEDIT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_DETBOOKS.resx">
+      <DependentUpon>FRM_DETBOOKS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_ERRORINSERT.resx">
       <DependentUpon>FRM_ERRORINSERT.vb</DependentUpon>
