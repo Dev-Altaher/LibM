@@ -18,6 +18,7 @@ Public Class FRM_MIAN
     Dim ID As Integer
     Dim BLCAT As New CLS_CAT()
     Dim BLBOOKS As New CLS_BOOKS()
+    Dim BLST As New CLS_ST()
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
         Application.Exit()
 
@@ -102,6 +103,14 @@ Public Class FRM_MIAN
             BunifuTransition1.ShowSync(FBOOKS)
             FBOOKS.Show()
         End If
+        'اضافة طالب
+        If State = "ST" Then
+            Dim FBOOKS As New FRM_ADDSTUDNET()
+            FBOOKS.btnadd.ButtonText = "اضافة"
+            FBOOKS.ID = 0
+            BunifuTransition1.ShowSync(FBOOKS)
+            FBOOKS.Show()
+        End If
     End Sub
     Private Sub FRM_MIAN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         If State = "CAT" Then
@@ -136,6 +145,29 @@ Public Class FRM_MIAN
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
+        ElseIf State = "ST" Then
+            P_HOME.Visible = False
+            P_MAIN.Visible = True
+            BunifuThinButton24.Visible = True
+            State = "ST"
+            Lb_Title.Text = "الطلاب"
+
+            ' معالجة الاستثناءات
+            Try
+                ' تحميل البيانات
+                Dim dt As New DataTable()
+                dt = BLST.Load()
+                DataGridView1.DataSource = dt
+
+                ' تغيير عناوين الأعمدة
+                DataGridView1.Columns(0).HeaderText = "التسلسل"
+                DataGridView1.Columns(1).HeaderText = "اسم الطالب"
+                DataGridView1.Columns(2).HeaderText = "السكن"
+                DataGridView1.Columns(3).HeaderText = "رقم الهاتف"
+                DataGridView1.Columns(4).HeaderText = "ايميل"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
         End If
     End Sub
 
@@ -150,7 +182,6 @@ Public Class FRM_MIAN
             FCAT.Show()
         End If
         'تعديل كتاب
-        ' تعديل فئة
         If State = "CAT" Then
             Dim FCAT As New FRM_ADDCAT()
             FCAT.btnadd.ButtonText = "تعديل"
@@ -165,7 +196,6 @@ Public Class FRM_MIAN
             FBOOKS.btnadd.ButtonText = "تعديل"
             FBOOKS.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
             Try
-
                 Dim dt As New DataTable()
                 dt = BLBOOKS.LOADEDIT(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
                 Dim obj1 As Object = dt.Rows(0)("TITLE")
@@ -187,10 +217,43 @@ Public Class FRM_MIAN
                 FBOOKS.ComboBox1.Text = obj3.ToString()
                 FBOOKS.txt_price.Text = obj4.ToString()
             Catch ex As Exception
-                ' يمكن وضع التعليمات البرمجية لمعالجة الأخطاء هنا
+                ' يمكن وضع التعليمات البرمجية لمعالجة الأخطاء هنا
+            End Try
+            FBOOKS.Show()
+            'Edit Student
+        ElseIf State = "ST" Then
+            Try
+                Dim FST As New FRM_ADDSTUDNET()
+                FST.btnadd.ButtonText = "تعديل"
+                FST.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+                Dim dt As New DataTable()
+                dt = BLST.LOADEDIT(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+                Dim obj1 As Object = dt.Rows(0)("NAME")
+                Dim obj2 As Object = dt.Rows(0)("TLOACTION")
+                Dim obj3 As Object = dt.Rows(0)("PHONE")
+                Dim obj4 As Object = dt.Rows(0)("EMAIL")
+                Dim obj5 As Object = dt.Rows(0)("SCHOOL")
+                Dim obj6 As Object = dt.Rows(0)("DEP")
+                Dim obj7 As Object = dt.Rows(0)("COVER")
+
+                FST.txt_name.Text = obj1.ToString()
+                FST.txt_loaction.Text = obj2.ToString()
+                FST.txt_phone.Text = obj3.ToString()
+                FST.txt_email.Text = obj4.ToString()
+                FST.txt_school.Text = obj5.ToString()
+                FST.txt_dept.Text = obj6.ToString()
+
+                'Load Image
+                Dim ob As Byte() = CType(obj7, Byte())
+                Dim ma As New MemoryStream(ob)
+                FST.cover.Image = Image.FromStream(ma)
+                BunifuTransition1.ShowSync(FST)
+            Catch ex As Exception
+                ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
             End Try
         End If
     End Sub
+
 
     Private Sub BunifuThinButton23_Click(sender As Object, e As EventArgs) Handles BunifuThinButton23.Click
         ' حذف فئة
@@ -209,6 +272,7 @@ Public Class FRM_MIAN
         End If
     End Sub
     Private Sub bunifuMaterialTextbox1_OnValueChanged(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.OnValueChanged
+        ' البحث
         If State = "CAT" Then
             Dim inputText As String = BunifuMaterialTextbox1.Text.Trim()
 
@@ -219,6 +283,30 @@ Public Class FRM_MIAN
                 DataGridView1.DataSource = dt
             Else
                 'MessageBox.Show("يرجى إدخال اسم للبحث.", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
+
+        ' البحث عن الكتب
+        If State = "BOOKS" Then
+            Dim inputText As String = BunifuMaterialTextbox1.Text.Trim()
+
+            ' التأكد من أن النص غير فارغ
+            If Not String.IsNullOrEmpty(inputText) Then
+                Dim dt As New DataTable()
+                dt = BLBOOKS.serach(inputText) ' إرسال النص إلى الدالة
+                DataGridView1.DataSource = dt
+            End If
+        End If
+
+        ' البحث عن الطلاب
+        If State = "ST" Then
+            Dim inputText As String = BunifuMaterialTextbox1.Text.Trim()
+
+            ' التأكد من أن النص غير فارغ
+            If Not String.IsNullOrEmpty(inputText) Then
+                Dim dt As New DataTable()
+                dt = BLST.serach(inputText) ' إرسال النص إلى الدالة
+                DataGridView1.DataSource = dt
             End If
         End If
     End Sub
@@ -298,6 +386,60 @@ Public Class FRM_MIAN
             Catch ex As Exception
                 ' يمكن وضع التعليمات البرمجية لمعالجة الأخطاء هنا
             End Try
+        ElseIf State = "ST" Then
+            Try
+                'تفاصيل الطلاب
+                Dim FST As New FRM_ADDSTUDNET()
+                Dim dt As New DataTable()
+                dt = BLST.LOADEDIT(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+                Dim obj1 As Object = dt.Rows(0)("NAME")
+                Dim obj2 As Object = dt.Rows(0)("TLOACTION")
+                Dim obj3 As Object = dt.Rows(0)("PHONE")
+                Dim obj4 As Object = dt.Rows(0)("EMAIL")
+                Dim obj5 As Object = dt.Rows(0)("SCHOOL")
+                Dim obj6 As Object = dt.Rows(0)("DEP")
+                Dim obj7 As Object = dt.Rows(0)("COVER")
+
+                FST.txt_name.Text = obj1.ToString()
+                FST.txt_loaction.Text = obj2.ToString()
+                FST.txt_phone.Text = obj3.ToString()
+                FST.txt_email.Text = obj4.ToString()
+                FST.txt_school.Text = obj5.ToString()
+                FST.txt_dept.Text = obj6.ToString()
+
+                'Load Image
+                Dim ob As Byte() = CType(obj7, Byte())
+                Dim ma As New MemoryStream(ob)
+                FST.cover.Image = Image.FromStream(ma)
+                BunifuTransition1.ShowSync(FST)
+            Catch ex As Exception
+                ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
+            End Try
         End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        P_HOME.Visible = False
+        P_MAIN.Visible = True
+        BunifuThinButton24.Visible = True
+        State = "ST"
+        Lb_Title.Text = "الطلاب"
+
+        ' معالجة الاستثناءات
+        Try
+            ' تحميل البيانات
+            Dim dt As New DataTable()
+            dt = BLST.Load()
+            DataGridView1.DataSource = dt
+
+            ' تغيير عناوين الأعمدة
+            DataGridView1.Columns(0).HeaderText = "التسلسل"
+            DataGridView1.Columns(1).HeaderText = "اسم الطالب"
+            DataGridView1.Columns(2).HeaderText = "السكن"
+            DataGridView1.Columns(3).HeaderText = "رقم الهاتف"
+            DataGridView1.Columns(4).HeaderText = "ايميل"
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class

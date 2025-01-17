@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="BL\CLS_BOOKS.vb" />
     <Compile Include="BL\CLS_CAT.vb" />
+    <Compile Include="BL\CLS_ST.vb" />
     <Compile Include="DAL\CLS_DAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -109,6 +110,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PL\FRM_ADDSTUDNET.Designer.vb">
+      <DependentUpon>FRM_ADDSTUDNET.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_ADDSTUDNET.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FRM_ADDBOKKS.Designer.vb">
       <DependentUpon>FRM_ADDBOKKS.vb</DependentUpon>
@@ -140,6 +147,12 @@
     <Compile Include="PL\FRM_DEDIT.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PL\FRM_DETST.Designer.vb">
+      <DependentUpon>FRM_DETST.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_DETST.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PL\FRM_DETBOOKS.Designer.vb">
       <DependentUpon>FRM_DETBOOKS.vb</DependentUpon>
     </Compile>
@@ -166,6 +179,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_ADDSTUDNET.resx">
+      <DependentUpon>FRM_ADDSTUDNET.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_ADDBOKKS.resx">
       <DependentUpon>FRM_ADDBOKKS.vb</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_DEDIT.resx">
       <DependentUpon>FRM_DEDIT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_DETST.resx">
+      <DependentUpon>FRM_DETST.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_DETBOOKS.resx">
       <DependentUpon>FRM_DETBOOKS.vb</DependentUpon>

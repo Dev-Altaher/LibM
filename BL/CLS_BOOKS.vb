@@ -17,7 +17,7 @@ Namespace LibM.BL
             dt = DAL.read("PR_LOADBOOKS", pr)
             Return dt
         End Function
-        'بحث عن كتاب موجود
+        'تحميل الفئات
         Public Function LOADCAT() As DataTable
             ' إنشاء معلمة @SEARCH
             Dim pr As SqlParameter() = Nothing
@@ -29,13 +29,13 @@ Namespace LibM.BL
         ' إضافة سجل جديد
         Public Sub Insert(TITLE As String, AUTHER As String, CAT As String, PRICE As String, BDATE As String, RATE As Integer, COVER As MemoryStream)
             Dim pr(7) As SqlParameter
-            pr(0) = New SqlParameter("TITLE", TITLE)
-            pr(1) = New SqlParameter("AUTHER", AUTHER)
-            pr(2) = New SqlParameter("CAT", CAT)
-            pr(3) = New SqlParameter("PRICE", PRICE)
-            pr(4) = New SqlParameter("BDATE", BDATE)
-            pr(5) = New SqlParameter("RATE", RATE)
-            pr(6) = New SqlParameter("COVER", COVER.ToArray())
+            pr(0) = New SqlParameter("@TITLE", TITLE)
+            pr(1) = New SqlParameter("@AUTHER", AUTHER)
+            pr(2) = New SqlParameter("@CAT", CAT)
+            pr(3) = New SqlParameter("@PRICE", PRICE)
+            pr(4) = New SqlParameter("@BDATE", BDATE)
+            pr(5) = New SqlParameter("@RATE", RATE)
+            pr(6) = New SqlParameter("@COVER", COVER.ToArray())
             DAL.open()
             DAL.Execute("PR_INSERTBOOKS", pr)
             DAL.close()
@@ -43,7 +43,7 @@ Namespace LibM.BL
         ' تعديل سجل موجود
         Public Function LOADEDIT(ByVal ID As Integer) As DataTable
             Dim pr As SqlParameter() = New SqlParameter(0) {}
-            pr(0) = New SqlParameter("ID", ID)
+            pr(0) = New SqlParameter("@ID", ID)
 
             Dim dt As New DataTable()
             dt = DAL.read("PR_SELECTEDIT", pr)
@@ -52,14 +52,14 @@ Namespace LibM.BL
         'تحديث سجل موجود
         Public Sub Update(TITLE As String, AUTHER As String, CAT As String, PRICE As String, BDATE As String, RATE As Integer, COVER As MemoryStream, ID As Integer)
             Dim pr(7) As SqlParameter
-            pr(0) = New SqlParameter("TITLE", TITLE)
-            pr(1) = New SqlParameter("AUTHER", AUTHER)
-            pr(2) = New SqlParameter("CAT", CAT)
-            pr(3) = New SqlParameter("PRICE", PRICE)
-            pr(4) = New SqlParameter("BDATE", BDATE)
-            pr(5) = New SqlParameter("RATE", RATE)
-            pr(6) = New SqlParameter("COVER", COVER.ToArray())
-            pr(7) = New SqlParameter("ID", ID)
+            pr(0) = New SqlParameter("@TITLE", TITLE)
+            pr(1) = New SqlParameter("@AUTHER", AUTHER)
+            pr(2) = New SqlParameter("@CAT", CAT)
+            pr(3) = New SqlParameter("@PRICE", PRICE)
+            pr(4) = New SqlParameter("@BDATE", BDATE)
+            pr(5) = New SqlParameter("@RATE", RATE)
+            pr(6) = New SqlParameter("@COVER", COVER.ToArray())
+            pr(7) = New SqlParameter("@ID", ID)
             DAL.open()
             DAL.Execute("PR_EDITBOKKS", pr)
             DAL.close()
@@ -72,5 +72,19 @@ Namespace LibM.BL
             DAL.Execute("P_DELETEBOOKS", pr)
             DAL.close()
         End Sub
+        'بحث عن كتاب موجود
+        Public Function serach(SEARCH As String) As DataTable
+            ' إنشاء معلمة @SEARCH
+            Dim pr As SqlParameter() = {
+                New SqlParameter("@SEARCH", SqlDbType.NVarChar) With {
+                    .Value = SEARCH
+                }
+            }
+
+            ' قراءة البيانات باستخدام الإجراء المخزن
+            Dim dt As New DataTable()
+            dt = DAL.read("P_BOOKSSEARCH", pr)
+            Return dt
+        End Function
     End Class
 End Namespace

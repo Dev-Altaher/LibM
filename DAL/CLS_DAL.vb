@@ -5,6 +5,7 @@ Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.IO
 
 Namespace LibM.DAL
     Class CLS_DAL
@@ -59,33 +60,43 @@ Namespace LibM.DAL
         ' store: اسم الإجراء المخزن
         ' pr: قائمة بالمعاملات (Parameters) التي سيتم تمريرها للإجراء
         Public Sub Execute(store As String, pr() As SqlParameter)
-            Dim cmd As New SqlCommand()
-            cmd.Connection = con ' تعيين الاتصال
-            cmd.CommandType = CommandType.StoredProcedure ' نوع الأمر (إجراء مخزن)
-            cmd.CommandText = store ' اسم الإجراء المخزن
+            Using cmd As New SqlCommand()
+                cmd.Connection = con
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.CommandText = store
 
-            ' التحقق من المعاملات قبل إضافتها
-            If pr IsNot Nothing AndAlso pr.Length > 0 Then
-                For Each param As SqlParameter In pr
-                    If param IsNot Nothing Then
-                        cmd.Parameters.Add(param)
-                    Else
-                        'MessageBox.Show("One of the SqlParameter objects is null.")
-                        'Return
-                    End If
-                Next
-            Else
-                MessageBox.Show("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
-                Return
-            End If
+                If con.State = ConnectionState.Closed Then
+                    con.Open()
+                End If
 
-            ' تنفيذ الأمر (الإجراء المخزن)
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As SqlException
-                MessageBox.Show("حدث خطأ أثناء تنفيذ الإجراء المخزن: " & ex.Message)
-            End Try
+                ' التحقق من المعاملات
+                If pr IsNot Nothing AndAlso pr.Length > 0 Then
+                    For Each param As SqlParameter In pr
+                        If param IsNot Nothing Then
+                            If param.Value Is Nothing Then
+                                param.Value = DBNull.Value
+                            ElseIf TypeOf param.Value Is MemoryStream() Then
+                                Dim memoryStreams As MemoryStream() = CType(param.Value, MemoryStream())
+                                Dim byteArrays As New List(Of Byte())()
+                                For Each ms As MemoryStream In memoryStreams
+                                    byteArrays.Add(ms.ToArray())
+                                Next
+                                param.Value = byteArrays.SelectMany(Function(b) b).ToArray()
+                            End If
+                            cmd.Parameters.Add(param)
+                        End If
+                    Next
+                Else
+                    Throw New ArgumentException("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
+                End If
+
+                'تنفيذ الأمر
+                Try
+                    cmd.ExecuteNonQuery()
+                Catch ex As SqlException
+                    'Throw New Exception("حدث خطأ أثناء تنفيذ الإجراء المخزن: " & ex.Message, ex)
+                End Try
+            End Using
         End Sub
-
     End Class
 End Namespace
