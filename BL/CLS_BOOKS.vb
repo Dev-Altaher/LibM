@@ -26,7 +26,7 @@ Namespace LibM.BL
             dt = DAL.read("PR_LOADCATTOCOMBOBOX", pr)
             Return dt
         End Function
-        ' إضافة سجل جديد
+        'تحديث سجل جديد
         Public Sub Insert(TITLE As String, AUTHER As String, CAT As String, PRICE As String, BDATE As String, RATE As Integer, COVER As MemoryStream)
             Dim pr(7) As SqlParameter
             pr(0) = New SqlParameter("@TITLE", TITLE)

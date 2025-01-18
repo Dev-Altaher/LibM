@@ -19,6 +19,7 @@ Public Class FRM_MIAN
     Dim BLCAT As New CLS_CAT()
     Dim BLBOOKS As New CLS_BOOKS()
     Dim BLST As New CLS_ST()
+    Dim BSELL As New CLS_SELL()
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
         Application.Exit()
 
@@ -111,6 +112,14 @@ Public Class FRM_MIAN
             BunifuTransition1.ShowSync(FBOOKS)
             FBOOKS.Show()
         End If
+        'اضافة بيع
+        If State = "SELL" Then
+            Dim FSELL As New FRM_MAKESELL()
+            FSELL.btnadd.ButtonText = "اضافة"
+            FSELL.ID = 0
+            BunifuTransition1.ShowSync(FSELL)
+            FSELL.Show()
+        End If
     End Sub
     Private Sub FRM_MIAN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         If State = "CAT" Then
@@ -165,6 +174,29 @@ Public Class FRM_MIAN
                 DataGridView1.Columns(2).HeaderText = "السكن"
                 DataGridView1.Columns(3).HeaderText = "رقم الهاتف"
                 DataGridView1.Columns(4).HeaderText = "ايميل"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf State = "SELL" Then
+            P_HOME.Visible = False
+            P_MAIN.Visible = True
+            BunifuThinButton24.Visible = False
+            State = "SELL"
+            Lb_Title.Text = "البيع"
+
+            ' معالجة الاستثناءات
+            Try
+                ' تحميل البيانات
+                Dim dt As New DataTable()
+                dt = BSELL.Load()
+                DataGridView1.DataSource = dt
+
+                ' تغيير عناوين الأعمدة
+                DataGridView1.Columns(0).HeaderText = "التسلسل"
+                DataGridView1.Columns(1).HeaderText = "اسم الكتاب"
+                DataGridView1.Columns(2).HeaderText = "المشتري"
+                DataGridView1.Columns(3).HeaderText = "السعر"
+                DataGridView1.Columns(4).HeaderText = "التاريخ"
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
@@ -438,6 +470,31 @@ Public Class FRM_MIAN
             DataGridView1.Columns(2).HeaderText = "السكن"
             DataGridView1.Columns(3).HeaderText = "رقم الهاتف"
             DataGridView1.Columns(4).HeaderText = "ايميل"
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        P_HOME.Visible = False
+        P_MAIN.Visible = True
+        BunifuThinButton24.Visible = False
+        State = "SELL"
+        Lb_Title.Text = "البيع"
+
+        ' معالجة الاستثناءات
+        Try
+            ' تحميل البيانات
+            Dim dt As New DataTable()
+            dt = BSELL.Load()
+            DataGridView1.DataSource = dt
+
+            ' تغيير عناوين الأعمدة
+            DataGridView1.Columns(0).HeaderText = "التسلسل"
+            DataGridView1.Columns(1).HeaderText = "اسم الكتاب"
+            DataGridView1.Columns(2).HeaderText = "المشتري"
+            DataGridView1.Columns(3).HeaderText = "السعر"
+            DataGridView1.Columns(4).HeaderText = "التاريخ"
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
