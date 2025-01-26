@@ -93,9 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\CLS_BOOKS.vb" />
+    <Compile Include="BL\CLS_BOR.vb" />
     <Compile Include="BL\CLS_CAT.vb" />
     <Compile Include="BL\CLS_SELL.vb" />
     <Compile Include="BL\CLS_ST.vb" />
+    <Compile Include="BL\CLS_USERS.vb" />
     <Compile Include="DAL\CLS_DAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -111,6 +113,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PL\FRM_ADDUSER.Designer.vb">
+      <DependentUpon>FRM_ADDUSER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_ADDUSER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_BRO.Designer.vb">
+      <DependentUpon>FRM_BRO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_BRO.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FRM_MAKESELL.Designer.vb">
       <DependentUpon>FRM_MAKESELL.vb</DependentUpon>
@@ -185,6 +199,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_ADDUSER.resx">
+      <DependentUpon>FRM_ADDUSER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_BRO.resx">
+      <DependentUpon>FRM_BRO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_MAKESELL.resx">
       <DependentUpon>FRM_MAKESELL.vb</DependentUpon>

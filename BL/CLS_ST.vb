@@ -70,5 +70,14 @@ Namespace LibM.BL
             dt = DAL.read("PR_SERACHST", pr)
             Return dt
         End Function
+        'حذف طالب موجود
+        Public Sub Delete(ID As Integer)
+            Dim pr As SqlParameter() = New SqlParameter(1) {}
+            pr(0) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("P_DELETEST", pr)
+            DAL.close()
+        End Sub
+
     End Class
 End Namespace

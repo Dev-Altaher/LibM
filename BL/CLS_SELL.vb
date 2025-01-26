@@ -24,7 +24,7 @@ Namespace LibM.BL
             dt = DAL.read("PR_LOADBOOKFORSELL", pr)
             Return dt
         End Function
-        'تحميل طالب  
+        'تحميل 
         Public Function loadST() As DataTable
             Dim pr As SqlParameter() = Nothing
             Dim dt As New DataTable()
@@ -42,5 +42,38 @@ Namespace LibM.BL
             DAL.Execute("PR_INSERTSELL", pr)
             DAL.close()
         End Sub
+        Public Sub upadte(SNAME As String, BTITLE As String, PRICE As Integer, BDATE As String, ID As Integer)
+            Dim pr(5) As SqlParameter
+            pr(0) = New SqlParameter("@SNAME", SNAME)
+            pr(1) = New SqlParameter("@BTITLE", BTITLE)
+            pr(2) = New SqlParameter("@PRICE", PRICE)
+            pr(3) = New SqlParameter("@BDATE", BDATE)
+            pr(4) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("PR_UPDATERTSELL", pr)
+            DAL.close()
+        End Sub
+        'حذف عملية بيع
+        Public Sub Delete(ID As Integer)
+            Dim pr As SqlParameter() = New SqlParameter(1) {}
+            pr(0) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("PR_SELLDELETE", pr)
+            DAL.close()
+        End Sub
+        'بحث عن عملية بيع
+        Public Function serach(SEARCH As String) As DataTable
+            ' إنشاء معلمة @SEARCH
+            Dim pr As SqlParameter() = {
+                New SqlParameter("@SEARCH", SqlDbType.NVarChar) With {
+                    .Value = SEARCH
+                }
+            }
+
+            ' قراءة البيانات باستخدام الإجراء المخزن
+            Dim dt As New DataTable()
+            dt = DAL.read("P_BOOKSSEARCH", pr)
+            Return dt
+        End Function
     End Class
 End Namespace

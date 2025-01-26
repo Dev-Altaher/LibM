@@ -20,6 +20,8 @@ Public Class FRM_MIAN
     Dim BLBOOKS As New CLS_BOOKS()
     Dim BLST As New CLS_ST()
     Dim BSELL As New CLS_SELL()
+    Dim BRO As New CLS_BOR()
+    Dim BLUSER As New CLS_USERS()
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
         Application.Exit()
 
@@ -120,6 +122,23 @@ Public Class FRM_MIAN
             BunifuTransition1.ShowSync(FSELL)
             FSELL.Show()
         End If
+        'اضافة استعارة
+        If State = "BOR" Then
+            Dim FBOR As New FRM_BRO()
+            FBOR.btnadd.ButtonText = "اضافة"
+            FBOR.ID = 0
+            BunifuTransition1.ShowSync(FBOR)
+            FBOR.Show()
+        End If
+        'اضافة مستخدم
+
+        If State = "USER" Then
+            Dim FUSER As New FRM_ADDUSER()
+            FUSER.btnadd.ButtonText = "اضافة"
+            FUSER.ID = 0
+            BunifuTransition1.ShowSync(FUSER)
+            FUSER.Show()
+        End If
     End Sub
     Private Sub FRM_MIAN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         If State = "CAT" Then
@@ -197,6 +216,54 @@ Public Class FRM_MIAN
                 DataGridView1.Columns(2).HeaderText = "المشتري"
                 DataGridView1.Columns(3).HeaderText = "السعر"
                 DataGridView1.Columns(4).HeaderText = "التاريخ"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf State = "BRO" Then
+            P_HOME.Visible = False
+            P_MAIN.Visible = True
+            BunifuThinButton24.Visible = False
+            State = "BOR"
+            Lb_Title.Text = "الاستعارة"
+
+            ' معالجة الاستثناءات
+            Try
+                ' تحميل البيانات
+                Dim dt As New DataTable()
+                dt = BRO.Load()
+                DataGridView1.DataSource = dt
+
+                ' تغيير عناوين الأعمدة
+                DataGridView1.Columns(0).HeaderText = "التسلسل"
+                DataGridView1.Columns(1).HeaderText = "اسم المشتري"
+                DataGridView1.Columns(2).HeaderText = "اسم الكتاب"
+                DataGridView1.Columns(3).HeaderText = "بداية الاستعارة"
+                DataGridView1.Columns(4).HeaderText = "نهاية الاستعارة"
+                DataGridView1.Columns(5).HeaderText = "السعر"
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf State = "USER" Then
+            P_HOME.Visible = False
+            P_MAIN.Visible = True
+            BunifuThinButton24.Visible = False
+            State = "USER"
+            Lb_Title.Text = "المستخدمين"
+
+            ' معالجة الاستثناءات
+            Try
+                ' تحميل البيانات
+                Dim dt As New DataTable()
+                dt = BLUSER.Load()
+                DataGridView1.DataSource = dt
+
+                ' تغيير عناوين الأعمدة
+                DataGridView1.Columns(0).HeaderText = "التسلسل"
+                DataGridView1.Columns(1).HeaderText = "اسم كامل"
+                DataGridView1.Columns(2).HeaderText = "اسم المستخدم"
+                DataGridView1.Columns(3).HeaderText = "كلمت السر"
+                DataGridView1.Columns(4).HeaderText = "الصلاحية"
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
@@ -283,6 +350,33 @@ Public Class FRM_MIAN
             Catch ex As Exception
                 ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
             End Try
+        ElseIf State = "SELL" Then
+            Try
+                Dim FST As New FRM_MAKESELL()
+                FST.btnadd.ButtonText = "تعديل"
+                FST.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+                BunifuTransition1.ShowSync(FST)
+            Catch ex As Exception
+                ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
+            End Try
+            'ElseIf State = "BOR" Then
+            '    Try
+            '        Dim FST As New FRM_BRO()
+            '        FST.btnadd.ButtonText = "تعديل"
+            '        FST.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+            '        BunifuTransition1.ShowSync(FST)
+            '    Catch ex As Exception
+            '        ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
+            '    End Try
+        ElseIf State = "USER" Then
+            Try
+                Dim FUSER As New FRM_ADDUSER()
+                FUSER.btnadd.ButtonText = "تعديل"
+                FUSER.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+                BunifuTransition1.ShowSync(FUSER)
+            Catch ex As Exception
+                ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
+            End Try
         End If
     End Sub
 
@@ -301,6 +395,18 @@ Public Class FRM_MIAN
             Dim Fdelete As New FRM_DDELETE()
             Fdelete.Show()
             'MessageBox.Show("تم الحذف بنجاح")
+        End If
+        'حذف طالب
+        If State = "ST" Then
+            BLST.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")
+            'حذف بيع
+        ElseIf State = "SELL" Then
+            BSELL.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
         End If
     End Sub
     Private Sub bunifuMaterialTextbox1_OnValueChanged(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.OnValueChanged
@@ -338,6 +444,17 @@ Public Class FRM_MIAN
             If Not String.IsNullOrEmpty(inputText) Then
                 Dim dt As New DataTable()
                 dt = BLST.serach(inputText) ' إرسال النص إلى الدالة
+                DataGridView1.DataSource = dt
+            End If
+        End If
+        ' البحث عن البيع
+        If State = "SELL" Then
+            Dim inputText As String = BunifuMaterialTextbox1.Text.Trim()
+
+            ' التأكد من أن النص غير فارغ
+            If Not String.IsNullOrEmpty(inputText) Then
+                Dim dt As New DataTable()
+                dt = BSELL.serach(inputText) ' إرسال النص إلى الدالة
                 DataGridView1.DataSource = dt
             End If
         End If
@@ -495,6 +612,58 @@ Public Class FRM_MIAN
             DataGridView1.Columns(2).HeaderText = "المشتري"
             DataGridView1.Columns(3).HeaderText = "السعر"
             DataGridView1.Columns(4).HeaderText = "التاريخ"
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        P_HOME.Visible = False
+        P_MAIN.Visible = True
+        BunifuThinButton24.Visible = False
+        State = "BOR"
+        Lb_Title.Text = "الاستعارة"
+
+        ' معالجة الاستثناءات
+        Try
+            ' تحميل البيانات
+            Dim dt As New DataTable()
+            dt = BRO.Load()
+            DataGridView1.DataSource = dt
+
+            ' تغيير عناوين الأعمدة
+            DataGridView1.Columns(0).HeaderText = "التسلسل"
+            DataGridView1.Columns(1).HeaderText = "اسم المشتري"
+            DataGridView1.Columns(2).HeaderText = "اسم الكتاب"
+            DataGridView1.Columns(3).HeaderText = "بداية الاستعارة"
+            DataGridView1.Columns(4).HeaderText = "نهاية الاستعارة"
+            DataGridView1.Columns(5).HeaderText = "السعر"
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        P_HOME.Visible = False
+        P_MAIN.Visible = True
+        BunifuThinButton24.Visible = False
+        State = "USER"
+        Lb_Title.Text = "المستخدمين"
+
+        ' معالجة الاستثناءات
+        Try
+            ' تحميل البيانات
+            Dim dt As New DataTable()
+            dt = BLUSER.Load()
+            DataGridView1.DataSource = dt
+
+            ' تغيير عناوين الأعمدة
+            DataGridView1.Columns(0).HeaderText = "التسلسل"
+            DataGridView1.Columns(1).HeaderText = "اسم كامل"
+            DataGridView1.Columns(2).HeaderText = "اسم المستخدم"
+            DataGridView1.Columns(3).HeaderText = "كلمت السر"
+            DataGridView1.Columns(4).HeaderText = "الصلاحية"
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

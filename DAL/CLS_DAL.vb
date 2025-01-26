@@ -53,8 +53,9 @@ Namespace LibM.DAL
             Dim da As New SqlDataAdapter(cmd)
             Dim dt As New DataTable()
             da.Fill(dt) ' تعبئة البيانات في DataTable
-            Return dt ' إرجاع الجدول
+            Return dt
         End Function
+
 
         ' وظيفة لتنفيذ إجراءات مثل الإضافة، التعديل، أو الحذف باستخدام إجراء مخزن
         ' store: اسم الإجراء المخزن

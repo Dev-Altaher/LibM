@@ -52,14 +52,17 @@ Public Class FRM_MAKESELL
                         BLSEEL.Insert(DataGridView2.CurrentRow.Cells(0).Value, DataGridView1.CurrentRow.Cells(0).Value, title, DateTime.Now.ToString("yyyy-MM-dd"))
                         Dim Fadd As New FRM_DADD()
                         Fadd.Show()
-                        ' إعادة تحميل البيانات بعد الإضافة
                         ReloadData()
                         Me.Close()
                     Else
                         MessageBox.Show("يرجى التأكد من وجود بيانات في الجداول.")
                     End If
                 Else
-                    ' تحديث بيانات موجودة (الكود معلق)
+                    Dim BLSEEL As New BL.CLS_SELL()
+                    BLSEEL.upadte(DataGridView2.CurrentRow.Cells(0).Value, DataGridView1.CurrentRow.Cells(0).Value, title, DateTime.Now.ToString("yyyy-MM-dd"), ID)
+                    Dim Fadd As New FRM_DEDIT()
+                    Fadd.Show()
+                    Me.Close()
                 End If
             Else
                 MessageBox.Show("يرجى إدخال قيمة رقمية صحيحة في حقل العنوان.")
