@@ -126,6 +126,12 @@
     <Compile Include="PL\FRM_BRO.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PL\FRM_LOGIN.Designer.vb">
+      <DependentUpon>FRM_LOGIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_LOGIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PL\FRM_MAKESELL.Designer.vb">
       <DependentUpon>FRM_MAKESELL.vb</DependentUpon>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_BRO.resx">
       <DependentUpon>FRM_BRO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_LOGIN.resx">
+      <DependentUpon>FRM_LOGIN.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_MAKESELL.resx">
       <DependentUpon>FRM_MAKESELL.vb</DependentUpon>

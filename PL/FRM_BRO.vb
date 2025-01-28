@@ -69,8 +69,8 @@ Public Class FRM_BRO
                     End If
                 Else
                     If AreRowsValid() Then
-                        Dim BLSEEL As New BL.CLS_SELL()
-                        BLSEEL.upadte(DataGridView2.CurrentRow.Cells(0).Value, DataGridView1.CurrentRow.Cells(0).Value, title, DateTime.Now.ToString("yyyy-MM-dd"), ID)
+                        Dim BLSEEL As New BL.CLS_BOR()
+                        BLSEEL.upadte(Convert.ToString(DataGridView1.CurrentRow.Cells(0).Value), Convert.ToString(DataGridView2.CurrentRow.Cells(0).Value), txt_date.Value.ToString("yyyy-MM-dd"), txt_date2.Value.ToString("yyyy-MM-dd"), txt_title.Text, ID)
                         Dim Fadd As New FRM_DEDIT()
                         Fadd.Show()
                         Me.Close()

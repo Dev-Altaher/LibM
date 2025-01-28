@@ -88,7 +88,7 @@ Namespace LibM.DAL
                         End If
                     Next
                 Else
-                    Throw New ArgumentException("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
+                    'Throw New ArgumentException("المعاملات pr فارغة أو غير مهيأة بشكل صحيح.")
                 End If
 
                 'تنفيذ الأمر

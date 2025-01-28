@@ -84,6 +84,7 @@ Partial Class FRM_MIAN
         Me.BunifuElipse6 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.P_Container = New System.Windows.Forms.Panel()
         Me.BunifuTransition1 = New BunifuAnimatorNS.BunifuTransition(Me.components)
+        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.P_MB.SuspendLayout()
         CType(Me.BunifuImageButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +104,7 @@ Partial Class FRM_MIAN
         Me.Panel8.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.P_Container.SuspendLayout()
+        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'P_MB
@@ -270,6 +272,7 @@ Partial Class FRM_MIAN
         '
         'P_TB
         '
+        Me.P_TB.Controls.Add(Me.BunifuImageButton5)
         Me.P_TB.Controls.Add(Me.Lb_Title)
         Me.P_TB.Controls.Add(Me.BunifuImageButton3)
         Me.P_TB.Controls.Add(Me.BunifuImageButton2)
@@ -299,7 +302,7 @@ Partial Class FRM_MIAN
         Me.BunifuTransition1.SetDecoration(Me.BunifuImageButton3, BunifuAnimatorNS.DecorationType.None)
         Me.BunifuImageButton3.Image = CType(resources.GetObject("BunifuImageButton3.Image"), System.Drawing.Image)
         Me.BunifuImageButton3.ImageActive = Nothing
-        Me.BunifuImageButton3.Location = New System.Drawing.Point(124, 3)
+        Me.BunifuImageButton3.Location = New System.Drawing.Point(112, 1)
         Me.BunifuImageButton3.Name = "BunifuImageButton3"
         Me.BunifuImageButton3.Size = New System.Drawing.Size(42, 39)
         Me.BunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -948,6 +951,20 @@ Partial Class FRM_MIAN
         Me.BunifuTransition1.DefaultAnimation = Animation1
         Me.BunifuTransition1.Interval = 3
         '
+        'BunifuImageButton5
+        '
+        Me.BunifuImageButton5.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuTransition1.SetDecoration(Me.BunifuImageButton5, BunifuAnimatorNS.DecorationType.None)
+        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
+        Me.BunifuImageButton5.ImageActive = Nothing
+        Me.BunifuImageButton5.Location = New System.Drawing.Point(1006, 0)
+        Me.BunifuImageButton5.Name = "BunifuImageButton5"
+        Me.BunifuImageButton5.Size = New System.Drawing.Size(56, 43)
+        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.BunifuImageButton5.TabIndex = 3
+        Me.BunifuImageButton5.TabStop = False
+        Me.BunifuImageButton5.Zoom = 10
+        '
         'FRM_MIAN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(27.0!, 28.0!)
@@ -989,6 +1006,7 @@ Partial Class FRM_MIAN
         Me.Panel8.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.P_Container.ResumeLayout(False)
+        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1049,4 +1067,5 @@ Partial Class FRM_MIAN
     Friend WithEvents BunifuThinButton22 As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents BunifuThinButton21 As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents BunifuTransition1 As BunifuAnimatorNS.BunifuTransition
+    Friend WithEvents BunifuImageButton5 As Bunifu.Framework.UI.BunifuImageButton
 End Class

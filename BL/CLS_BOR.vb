@@ -43,5 +43,25 @@ Namespace LibM.BL
             DAL.Execute("PR_INSERTBOR", pr)
             DAL.close()
         End Sub
+        Public Sub upadte(BNAME As String, BTITLE As String, BDATE1 As String, BDATE2 As String, PRICE As String, ID As Integer)
+            Dim pr(6) As SqlParameter
+            pr(0) = New SqlParameter("@BNAME", BNAME)
+            pr(1) = New SqlParameter("@BTITLE", BTITLE)
+            pr(2) = New SqlParameter("@BDATE1", BDATE1)
+            pr(3) = New SqlParameter("@BDATE2", BDATE2)
+            pr(4) = New SqlParameter("@PRICE", PRICE)
+            pr(5) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("PR_EDITBRO", pr)
+            DAL.close()
+        End Sub
+        'حذف عملية استعارة
+        Public Sub Delete(ID As Integer)
+            Dim pr As SqlParameter() = New SqlParameter(1) {}
+            pr(0) = New SqlParameter("@ID", ID)
+            DAL.open()
+            DAL.Execute("PR_DELETEBOR", pr)
+            DAL.close()
+        End Sub
     End Class
 End Namespace

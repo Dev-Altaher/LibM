@@ -291,7 +291,6 @@ Public Class FRM_MIAN
             'تعديل كتاب
         ElseIf State = "BOOKS" Then
             Dim FBOOKS As New FRM_ADDBOKKS()
-
             FBOOKS.btnadd.ButtonText = "تعديل"
             FBOOKS.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
             Try
@@ -359,15 +358,15 @@ Public Class FRM_MIAN
             Catch ex As Exception
                 ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
             End Try
-            'ElseIf State = "BOR" Then
-            '    Try
-            '        Dim FST As New FRM_BRO()
-            '        FST.btnadd.ButtonText = "تعديل"
-            '        FST.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
-            '        BunifuTransition1.ShowSync(FST)
-            '    Catch ex As Exception
-            '        ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
-            '    End Try
+        ElseIf State = "BOR" Then
+            Try
+                Dim FST As New FRM_BRO()
+                FST.btnadd.ButtonText = "تعديل"
+                FST.ID = Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value)
+                BunifuTransition1.ShowSync(FST)
+            Catch ex As Exception
+                ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
+            End Try
         ElseIf State = "USER" Then
             Try
                 Dim FUSER As New FRM_ADDUSER()
@@ -378,6 +377,7 @@ Public Class FRM_MIAN
                 ' يمكن إضافة سجل الأخطاء هنا إذا لزم الأمر
             End Try
         End If
+
     End Sub
 
 
@@ -407,6 +407,19 @@ Public Class FRM_MIAN
             BSELL.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
             Dim Fdelete As New FRM_DDELETE()
             Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")
+            'حذف استعارة
+        ElseIf State = "BOR" Then
+            BRO.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")
+            'حذف مستخدم
+        ElseIf State = "USER" Then
+            BLUSER.Delete(Convert.ToInt16(DataGridView1.CurrentRow.Cells(0).Value))
+            Dim Fdelete As New FRM_DDELETE()
+            Fdelete.Show()
+            'MessageBox.Show("تم الحذف بنجاح")    
         End If
     End Sub
     Private Sub bunifuMaterialTextbox1_OnValueChanged(sender As Object, e As EventArgs) Handles BunifuMaterialTextbox1.OnValueChanged
@@ -667,5 +680,12 @@ Public Class FRM_MIAN
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub BunifuImageButton5_Click(sender As Object, e As EventArgs) Handles BunifuImageButton5.Click
+        Dim Login As New FRM_LOGIN()
+        BLUSER.Logout()
+        Me.Hide()
+        Login.Show()
     End Sub
 End Class
