@@ -23,22 +23,25 @@ Partial Class FRM_MIAN
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim Animation1 As BunifuAnimatorNS.Animation = New BunifuAnimatorNS.Animation()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim Animation2 As BunifuAnimatorNS.Animation = New BunifuAnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FRM_MIAN))
         Me.P_MB = New System.Windows.Forms.Panel()
+        Me.lb_prem = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.BunifuImageButton4 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.P_TB = New System.Windows.Forms.Panel()
+        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.Lb_Title = New System.Windows.Forms.Label()
         Me.BunifuImageButton3 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.BunifuImageButton2 = New Bunifu.Framework.UI.BunifuImageButton()
@@ -48,7 +51,6 @@ Partial Class FRM_MIAN
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -67,6 +69,7 @@ Partial Class FRM_MIAN
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.P_MAIN = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -75,7 +78,6 @@ Partial Class FRM_MIAN
         Me.BunifuThinButton22 = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.BunifuThinButton21 = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.BunifuElipse2 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.BunifuElipse3 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
@@ -84,11 +86,11 @@ Partial Class FRM_MIAN
         Me.BunifuElipse6 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.P_Container = New System.Windows.Forms.Panel()
         Me.BunifuTransition1 = New BunifuAnimatorNS.BunifuTransition(Me.components)
-        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.P_MB.SuspendLayout()
         CType(Me.BunifuImageButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TB.SuspendLayout()
+        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,18 +104,17 @@ Partial Class FRM_MIAN
         Me.P_MAIN.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
-        Me.Panel7.SuspendLayout()
         Me.P_Container.SuspendLayout()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'P_MB
         '
         Me.P_MB.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.P_MB.Controls.Add(Me.lb_prem)
         Me.P_MB.Controls.Add(Me.Button5)
+        Me.P_MB.Controls.Add(Me.Button4)
         Me.P_MB.Controls.Add(Me.Button6)
         Me.P_MB.Controls.Add(Me.Button7)
-        Me.P_MB.Controls.Add(Me.Button4)
         Me.P_MB.Controls.Add(Me.Button3)
         Me.P_MB.Controls.Add(Me.Button2)
         Me.P_MB.Controls.Add(Me.BunifuImageButton4)
@@ -126,6 +127,18 @@ Partial Class FRM_MIAN
         Me.P_MB.Size = New System.Drawing.Size(175, 786)
         Me.P_MB.TabIndex = 0
         '
+        'lb_prem
+        '
+        Me.lb_prem.AutoSize = True
+        Me.BunifuTransition1.SetDecoration(Me.lb_prem, BunifuAnimatorNS.DecorationType.None)
+        Me.lb_prem.Font = New System.Drawing.Font("Wide Latin", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_prem.ForeColor = System.Drawing.Color.Yellow
+        Me.lb_prem.Location = New System.Drawing.Point(113, 120)
+        Me.lb_prem.Name = "lb_prem"
+        Me.lb_prem.Size = New System.Drawing.Size(61, 36)
+        Me.lb_prem.TabIndex = 10
+        Me.lb_prem.Text = "مدير"
+        '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.Color.DarkSlateGray
@@ -135,13 +148,31 @@ Partial Class FRM_MIAN
         Me.Button5.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.Location = New System.Drawing.Point(3, 474)
+        Me.Button5.Location = New System.Drawing.Point(3, 457)
         Me.Button5.Name = "Button5"
         Me.Button5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button5.Size = New System.Drawing.Size(175, 53)
+        Me.Button5.Size = New System.Drawing.Size(179, 69)
         Me.Button5.TabIndex = 7
-        Me.Button5.Text = "الاستعارة  "
+        Me.Button5.Text = "الاستعارة     "
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BunifuTransition1.SetDecoration(Me.Button4, BunifuAnimatorNS.DecorationType.None)
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.Location = New System.Drawing.Point(0, 380)
+        Me.Button4.Name = "Button4"
+        Me.Button4.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button4.Size = New System.Drawing.Size(179, 69)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "البيع  "
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button6
         '
@@ -152,10 +183,10 @@ Partial Class FRM_MIAN
         Me.Button6.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button6.Location = New System.Drawing.Point(3, 545)
+        Me.Button6.Location = New System.Drawing.Point(-41, 551)
         Me.Button6.Name = "Button6"
         Me.Button6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button6.Size = New System.Drawing.Size(175, 53)
+        Me.Button6.Size = New System.Drawing.Size(223, 67)
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "الاصناف  "
         Me.Button6.UseVisualStyleBackColor = False
@@ -169,30 +200,13 @@ Partial Class FRM_MIAN
         Me.Button7.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button7.Location = New System.Drawing.Point(-1, 624)
+        Me.Button7.Location = New System.Drawing.Point(-4, 624)
         Me.Button7.Name = "Button7"
         Me.Button7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button7.Size = New System.Drawing.Size(173, 53)
+        Me.Button7.Size = New System.Drawing.Size(179, 53)
         Me.Button7.TabIndex = 9
         Me.Button7.Text = "مستخدم"
         Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.BunifuTransition1.SetDecoration(Me.Button4, BunifuAnimatorNS.DecorationType.None)
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.Location = New System.Drawing.Point(1, 399)
-        Me.Button4.Name = "Button4"
-        Me.Button4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button4.Size = New System.Drawing.Size(175, 53)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "البيع  "
-        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -203,7 +217,7 @@ Partial Class FRM_MIAN
         Me.Button3.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(0, 323)
+        Me.Button3.Location = New System.Drawing.Point(0, 316)
         Me.Button3.Name = "Button3"
         Me.Button3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button3.Size = New System.Drawing.Size(175, 53)
@@ -220,7 +234,7 @@ Partial Class FRM_MIAN
         Me.Button2.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.Location = New System.Drawing.Point(0, 247)
+        Me.Button2.Location = New System.Drawing.Point(0, 240)
         Me.Button2.Name = "Button2"
         Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button2.Size = New System.Drawing.Size(175, 53)
@@ -246,9 +260,9 @@ Partial Class FRM_MIAN
         '
         Me.BunifuTransition1.SetDecoration(Me.PictureBox1, BunifuAnimatorNS.DecorationType.None)
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(55, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(28, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(119, 117)
+        Me.PictureBox1.Size = New System.Drawing.Size(151, 136)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -262,16 +276,17 @@ Partial Class FRM_MIAN
         Me.Button1.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.Location = New System.Drawing.Point(0, 169)
+        Me.Button1.Location = New System.Drawing.Point(0, 162)
         Me.Button1.Name = "Button1"
         Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(175, 53)
+        Me.Button1.Size = New System.Drawing.Size(175, 58)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = " الرئيسية  "
         Me.Button1.UseVisualStyleBackColor = False
         '
         'P_TB
         '
+        Me.P_TB.Controls.Add(Me.BunifuMaterialTextbox1)
         Me.P_TB.Controls.Add(Me.BunifuImageButton5)
         Me.P_TB.Controls.Add(Me.Lb_Title)
         Me.P_TB.Controls.Add(Me.BunifuImageButton3)
@@ -281,8 +296,44 @@ Partial Class FRM_MIAN
         Me.P_TB.Dock = System.Windows.Forms.DockStyle.Top
         Me.P_TB.Location = New System.Drawing.Point(0, 0)
         Me.P_TB.Name = "P_TB"
-        Me.P_TB.Size = New System.Drawing.Size(1062, 43)
+        Me.P_TB.Size = New System.Drawing.Size(1062, 41)
         Me.P_TB.TabIndex = 1
+        '
+        'BunifuMaterialTextbox1
+        '
+        Me.BunifuMaterialTextbox1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.BunifuTransition1.SetDecoration(Me.BunifuMaterialTextbox1, BunifuAnimatorNS.DecorationType.None)
+        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 15.0!)
+        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty
+        Me.BunifuMaterialTextbox1.HintText = ""
+        Me.BunifuMaterialTextbox1.isPassword = False
+        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue
+        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray
+        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.BunifuMaterialTextbox1.LineThickness = 4
+        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(678, 1)
+        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
+        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(384, 40)
+        Me.BunifuMaterialTextbox1.TabIndex = 0
+        Me.BunifuMaterialTextbox1.Text = "ابحث هنا"
+        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'BunifuImageButton5
+        '
+        Me.BunifuImageButton5.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuTransition1.SetDecoration(Me.BunifuImageButton5, BunifuAnimatorNS.DecorationType.None)
+        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
+        Me.BunifuImageButton5.ImageActive = Nothing
+        Me.BunifuImageButton5.Location = New System.Drawing.Point(160, -1)
+        Me.BunifuImageButton5.Name = "BunifuImageButton5"
+        Me.BunifuImageButton5.Size = New System.Drawing.Size(56, 43)
+        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.BunifuImageButton5.TabIndex = 3
+        Me.BunifuImageButton5.TabStop = False
+        Me.BunifuImageButton5.Zoom = 10
         '
         'Lb_Title
         '
@@ -344,18 +395,18 @@ Partial Class FRM_MIAN
         Me.P_HOME.Controls.Add(Me.Button11)
         Me.P_HOME.Controls.Add(Me.Button10)
         Me.P_HOME.Controls.Add(Me.Button9)
-        Me.P_HOME.Controls.Add(Me.Button8)
         Me.P_HOME.Controls.Add(Me.Panel4)
         Me.P_HOME.Controls.Add(Me.Panel3)
         Me.P_HOME.Controls.Add(Me.Panel5)
         Me.P_HOME.Controls.Add(Me.Panel6)
         Me.P_HOME.Controls.Add(Me.Panel2)
         Me.P_HOME.Controls.Add(Me.Panel1)
+        Me.P_HOME.Controls.Add(Me.Button8)
         Me.BunifuTransition1.SetDecoration(Me.P_HOME, BunifuAnimatorNS.DecorationType.None)
         Me.P_HOME.Dock = System.Windows.Forms.DockStyle.Fill
         Me.P_HOME.Location = New System.Drawing.Point(0, 0)
         Me.P_HOME.Name = "P_HOME"
-        Me.P_HOME.Size = New System.Drawing.Size(1062, 743)
+        Me.P_HOME.Size = New System.Drawing.Size(1062, 745)
         Me.P_HOME.TabIndex = 2
         '
         'Button12
@@ -368,7 +419,7 @@ Partial Class FRM_MIAN
         Me.Button12.Font = New System.Drawing.Font("Wide Latin", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
         Me.Button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button12.Location = New System.Drawing.Point(26, 581)
+        Me.Button12.Location = New System.Drawing.Point(45, 583)
         Me.Button12.Name = "Button12"
         Me.Button12.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button12.Size = New System.Drawing.Size(148, 119)
@@ -387,7 +438,7 @@ Partial Class FRM_MIAN
         Me.Button11.Font = New System.Drawing.Font("Wide Latin", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
         Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button11.Location = New System.Drawing.Point(204, 581)
+        Me.Button11.Location = New System.Drawing.Point(248, 583)
         Me.Button11.Name = "Button11"
         Me.Button11.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button11.Size = New System.Drawing.Size(148, 119)
@@ -406,7 +457,7 @@ Partial Class FRM_MIAN
         Me.Button10.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.Image = CType(resources.GetObject("Button10.Image"), System.Drawing.Image)
         Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button10.Location = New System.Drawing.Point(382, 581)
+        Me.Button10.Location = New System.Drawing.Point(451, 583)
         Me.Button10.Name = "Button10"
         Me.Button10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button10.Size = New System.Drawing.Size(148, 119)
@@ -425,7 +476,7 @@ Partial Class FRM_MIAN
         Me.Button9.Font = New System.Drawing.Font("Wide Latin", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button9.Location = New System.Drawing.Point(560, 581)
+        Me.Button9.Location = New System.Drawing.Point(654, 583)
         Me.Button9.Name = "Button9"
         Me.Button9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button9.Size = New System.Drawing.Size(148, 119)
@@ -433,25 +484,6 @@ Partial Class FRM_MIAN
         Me.Button9.Text = " اضافة طالب"
         Me.Button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button9.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Button8.BackColor = System.Drawing.Color.RoyalBlue
-        Me.BunifuTransition1.SetDecoration(Me.Button8, BunifuAnimatorNS.DecorationType.None)
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button8.Location = New System.Drawing.Point(738, 581)
-        Me.Button8.Name = "Button8"
-        Me.Button8.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button8.Size = New System.Drawing.Size(148, 119)
-        Me.Button8.TabIndex = 10
-        Me.Button8.Text = "اضافة كتاب"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button8.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -461,7 +493,7 @@ Partial Class FRM_MIAN
         Me.Panel4.Controls.Add(Me.Label9)
         Me.BunifuTransition1.SetDecoration(Me.Panel4, BunifuAnimatorNS.DecorationType.None)
         Me.Panel4.ForeColor = System.Drawing.Color.White
-        Me.Panel4.Location = New System.Drawing.Point(585, 345)
+        Me.Panel4.Location = New System.Drawing.Point(567, 346)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(200, 150)
         Me.Panel4.TabIndex = 8
@@ -499,7 +531,7 @@ Partial Class FRM_MIAN
         Me.Panel3.Controls.Add(Me.Label7)
         Me.BunifuTransition1.SetDecoration(Me.Panel3, BunifuAnimatorNS.DecorationType.None)
         Me.Panel3.ForeColor = System.Drawing.Color.White
-        Me.Panel3.Location = New System.Drawing.Point(585, 128)
+        Me.Panel3.Location = New System.Drawing.Point(567, 129)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(200, 150)
         Me.Panel3.TabIndex = 5
@@ -537,7 +569,7 @@ Partial Class FRM_MIAN
         Me.Panel5.Controls.Add(Me.Label11)
         Me.BunifuTransition1.SetDecoration(Me.Panel5, BunifuAnimatorNS.DecorationType.None)
         Me.Panel5.ForeColor = System.Drawing.Color.White
-        Me.Panel5.Location = New System.Drawing.Point(317, 345)
+        Me.Panel5.Location = New System.Drawing.Point(317, 346)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(200, 150)
         Me.Panel5.TabIndex = 7
@@ -575,7 +607,7 @@ Partial Class FRM_MIAN
         Me.Panel6.Controls.Add(Me.Label13)
         Me.BunifuTransition1.SetDecoration(Me.Panel6, BunifuAnimatorNS.DecorationType.None)
         Me.Panel6.ForeColor = System.Drawing.Color.White
-        Me.Panel6.Location = New System.Drawing.Point(75, 345)
+        Me.Panel6.Location = New System.Drawing.Point(75, 346)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(200, 150)
         Me.Panel6.TabIndex = 6
@@ -613,7 +645,7 @@ Partial Class FRM_MIAN
         Me.Panel2.Controls.Add(Me.Label5)
         Me.BunifuTransition1.SetDecoration(Me.Panel2, BunifuAnimatorNS.DecorationType.None)
         Me.Panel2.ForeColor = System.Drawing.Color.White
-        Me.Panel2.Location = New System.Drawing.Point(317, 128)
+        Me.Panel2.Location = New System.Drawing.Point(317, 129)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(200, 150)
         Me.Panel2.TabIndex = 5
@@ -651,7 +683,7 @@ Partial Class FRM_MIAN
         Me.Panel1.Controls.Add(Me.Label2)
         Me.BunifuTransition1.SetDecoration(Me.Panel1, BunifuAnimatorNS.DecorationType.None)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(75, 128)
+        Me.Panel1.Location = New System.Drawing.Point(75, 129)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(200, 150)
         Me.Panel1.TabIndex = 0
@@ -681,6 +713,25 @@ Partial Class FRM_MIAN
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "عدد المبيعات"
         '
+        'Button8
+        '
+        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button8.BackColor = System.Drawing.Color.RoyalBlue
+        Me.BunifuTransition1.SetDecoration(Me.Button8, BunifuAnimatorNS.DecorationType.None)
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Wide Latin", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button8.Location = New System.Drawing.Point(857, 586)
+        Me.Button8.Name = "Button8"
+        Me.Button8.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button8.Size = New System.Drawing.Size(148, 119)
+        Me.Button8.TabIndex = 10
+        Me.Button8.Text = "اضافة كتاب"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button8.UseVisualStyleBackColor = False
+        '
         'P_MAIN
         '
         Me.P_MAIN.Controls.Add(Me.DataGridView1)
@@ -690,7 +741,7 @@ Partial Class FRM_MIAN
         Me.P_MAIN.Dock = System.Windows.Forms.DockStyle.Fill
         Me.P_MAIN.Location = New System.Drawing.Point(0, 0)
         Me.P_MAIN.Name = "P_MAIN"
-        Me.P_MAIN.Size = New System.Drawing.Size(1062, 743)
+        Me.P_MAIN.Size = New System.Drawing.Size(1062, 745)
         Me.P_MAIN.TabIndex = 0
         '
         'DataGridView1
@@ -699,40 +750,40 @@ Partial Class FRM_MIAN
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.BunifuTransition1.SetDecoration(Me.DataGridView1, BunifuAnimatorNS.DecorationType.None)
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.GridColor = System.Drawing.Color.DimGray
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 42)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 10)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Wide Latin", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 35
-        Me.DataGridView1.Size = New System.Drawing.Size(1062, 606)
+        Me.DataGridView1.Size = New System.Drawing.Size(1062, 640)
         Me.DataGridView1.TabIndex = 2
         '
         'Panel8
@@ -743,7 +794,7 @@ Partial Class FRM_MIAN
         Me.Panel8.Controls.Add(Me.BunifuThinButton21)
         Me.BunifuTransition1.SetDecoration(Me.Panel8, BunifuAnimatorNS.DecorationType.None)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel8.Location = New System.Drawing.Point(0, 648)
+        Me.Panel8.Location = New System.Drawing.Point(0, 650)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(1062, 95)
         Me.Panel8.TabIndex = 1
@@ -858,35 +909,12 @@ Partial Class FRM_MIAN
         '
         'Panel7
         '
-        Me.Panel7.Controls.Add(Me.BunifuMaterialTextbox1)
         Me.BunifuTransition1.SetDecoration(Me.Panel7, BunifuAnimatorNS.DecorationType.None)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel7.Location = New System.Drawing.Point(0, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(1062, 42)
+        Me.Panel7.Size = New System.Drawing.Size(1062, 10)
         Me.Panel7.TabIndex = 0
-        '
-        'BunifuMaterialTextbox1
-        '
-        Me.BunifuMaterialTextbox1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuTransition1.SetDecoration(Me.BunifuMaterialTextbox1, BunifuAnimatorNS.DecorationType.None)
-        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 15.0!)
-        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty
-        Me.BunifuMaterialTextbox1.HintText = ""
-        Me.BunifuMaterialTextbox1.isPassword = False
-        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray
-        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.BunifuMaterialTextbox1.LineThickness = 4
-        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(343, 2)
-        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
-        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
-        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(384, 40)
-        Me.BunifuMaterialTextbox1.TabIndex = 0
-        Me.BunifuMaterialTextbox1.Text = "ابحث هنا"
-        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'BunifuElipse1
         '
@@ -920,50 +948,36 @@ Partial Class FRM_MIAN
         '
         'P_Container
         '
-        Me.P_Container.Controls.Add(Me.P_MAIN)
         Me.P_Container.Controls.Add(Me.P_HOME)
+        Me.P_Container.Controls.Add(Me.P_MAIN)
         Me.BunifuTransition1.SetDecoration(Me.P_Container, BunifuAnimatorNS.DecorationType.None)
         Me.P_Container.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.P_Container.Location = New System.Drawing.Point(0, 43)
+        Me.P_Container.Location = New System.Drawing.Point(0, 41)
         Me.P_Container.Name = "P_Container"
-        Me.P_Container.Size = New System.Drawing.Size(1062, 743)
+        Me.P_Container.Size = New System.Drawing.Size(1062, 745)
         Me.P_Container.TabIndex = 15
         '
         'BunifuTransition1
         '
         Me.BunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Scale
         Me.BunifuTransition1.Cursor = Nothing
-        Animation1.AnimateOnlyDifferences = True
-        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), System.Drawing.PointF)
-        Animation1.LeafCoeff = 0!
-        Animation1.MaxTime = 1.0!
-        Animation1.MinTime = 0!
-        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), System.Drawing.PointF)
-        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), System.Drawing.PointF)
-        Animation1.MosaicSize = 0
-        Animation1.Padding = New System.Windows.Forms.Padding(0)
-        Animation1.RotateCoeff = 0!
-        Animation1.RotateLimit = 0!
-        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), System.Drawing.PointF)
-        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), System.Drawing.PointF)
-        Animation1.TimeCoeff = 0!
-        Animation1.TransparencyCoeff = 0!
-        Me.BunifuTransition1.DefaultAnimation = Animation1
+        Animation2.AnimateOnlyDifferences = True
+        Animation2.BlindCoeff = CType(resources.GetObject("Animation2.BlindCoeff"), System.Drawing.PointF)
+        Animation2.LeafCoeff = 0!
+        Animation2.MaxTime = 1.0!
+        Animation2.MinTime = 0!
+        Animation2.MosaicCoeff = CType(resources.GetObject("Animation2.MosaicCoeff"), System.Drawing.PointF)
+        Animation2.MosaicShift = CType(resources.GetObject("Animation2.MosaicShift"), System.Drawing.PointF)
+        Animation2.MosaicSize = 0
+        Animation2.Padding = New System.Windows.Forms.Padding(0)
+        Animation2.RotateCoeff = 0!
+        Animation2.RotateLimit = 0!
+        Animation2.ScaleCoeff = CType(resources.GetObject("Animation2.ScaleCoeff"), System.Drawing.PointF)
+        Animation2.SlideCoeff = CType(resources.GetObject("Animation2.SlideCoeff"), System.Drawing.PointF)
+        Animation2.TimeCoeff = 0!
+        Animation2.TransparencyCoeff = 0!
+        Me.BunifuTransition1.DefaultAnimation = Animation2
         Me.BunifuTransition1.Interval = 3
-        '
-        'BunifuImageButton5
-        '
-        Me.BunifuImageButton5.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuTransition1.SetDecoration(Me.BunifuImageButton5, BunifuAnimatorNS.DecorationType.None)
-        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
-        Me.BunifuImageButton5.ImageActive = Nothing
-        Me.BunifuImageButton5.Location = New System.Drawing.Point(1006, 0)
-        Me.BunifuImageButton5.Name = "BunifuImageButton5"
-        Me.BunifuImageButton5.Size = New System.Drawing.Size(56, 43)
-        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.BunifuImageButton5.TabIndex = 3
-        Me.BunifuImageButton5.TabStop = False
-        Me.BunifuImageButton5.Zoom = 10
         '
         'FRM_MIAN
         '
@@ -981,10 +995,12 @@ Partial Class FRM_MIAN
         Me.Name = "FRM_MIAN"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.P_MB.ResumeLayout(False)
+        Me.P_MB.PerformLayout()
         CType(Me.BunifuImageButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.P_TB.ResumeLayout(False)
         Me.P_TB.PerformLayout()
+        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1004,9 +1020,7 @@ Partial Class FRM_MIAN
         Me.P_MAIN.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
         Me.P_Container.ResumeLayout(False)
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1068,4 +1082,5 @@ Partial Class FRM_MIAN
     Friend WithEvents BunifuThinButton21 As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents BunifuTransition1 As BunifuAnimatorNS.BunifuTransition
     Friend WithEvents BunifuImageButton5 As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents lb_prem As Label
 End Class

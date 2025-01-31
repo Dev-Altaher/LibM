@@ -75,5 +75,12 @@ Namespace LibM.BL
             DAL.Execute("PR_updatelogin", pr)
             DAL.close()
         End Sub
+        'تحقق من عملية البدء
+        Public Function STARTLOADDTA() As DataTable
+            Dim pr As SqlParameter() = Nothing
+            Dim dt As New DataTable()
+            dt = DAL.read("PR_START", pr)
+            Return dt
+        End Function
     End Class
 End Namespace

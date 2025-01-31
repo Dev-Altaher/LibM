@@ -11,7 +11,7 @@ Imports System.IO
 Imports LibM.LibM.BL
 Imports Bunifu.Framework.UI
 Public Class FRM_MIAN
-
+    Friend lb_name As Object
     Private PlaceholderTexts As New Dictionary(Of BunifuMaterialTextbox, String)
 
     Dim State As String
@@ -49,6 +49,7 @@ Public Class FRM_MIAN
             Button5.RightToLeft = RightToLeft.Yes
             Button6.RightToLeft = RightToLeft.Yes
             Button7.RightToLeft = RightToLeft.Yes
+            lb_prem.Visible = False
         Else
             P_MB.Width = 175
             Button1.RightToLeft = RightToLeft.No
@@ -58,6 +59,7 @@ Public Class FRM_MIAN
             Button5.RightToLeft = RightToLeft.No
             Button6.RightToLeft = RightToLeft.No
             Button7.RightToLeft = RightToLeft.No
+            lb_prem.Visible = True
         End If
     End Sub
 
@@ -141,6 +143,58 @@ Public Class FRM_MIAN
         End If
     End Sub
     Private Sub FRM_MIAN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        ' تحديث عدد الكتب
+        Try
+            Dim dt As New DataTable()
+            dt = BLBOOKS.Load()
+            Label6.Text = dt.Rows.Count.ToString()
+        Catch
+        End Try
+        'تحديث الاصناف
+        Try
+            Dim dt As New DataTable()
+            dt = BLCAT.Load()
+            Label10.Text = dt.Rows.Count.ToString()
+        Catch
+        End Try
+
+        ' تحديث عدد الطلاب
+        Try
+            Dim dt As New DataTable()
+            dt = BLST.Load()
+            Label4.Text = dt.Rows.Count.ToString()
+        Catch
+        End Try
+
+        ' تحديث عدد المبيعات
+        Try
+            Dim dt As New DataTable()
+            dt = BSELL.Load()
+            Label3.Text = dt.Rows.Count.ToString()
+        Catch
+        End Try
+
+        ' تحديث عدد الاستعارات
+        Try
+            Dim dt As New DataTable()
+            dt = BRO.Load()
+            Label8.Text = dt.Rows.Count.ToString()
+        Catch
+        End Try
+
+        ' تحديث عدد المستخدمين
+        Try
+            Dim dt As New DataTable()
+            dt = BLUSER.Load()
+            Label12.Text = dt.Rows.Count.ToString()
+        Catch
+            Dim dt As New DataTable()
+            dt = BLCAT.Load()
+            Label10.Text = dt.Rows.Count.ToString()
+        End Try
+
+        ' تحميل البيانات
+
         If State = "CAT" Then
             ' معالجة الاستثناءات
             Try
@@ -687,5 +741,52 @@ Public Class FRM_MIAN
         BLUSER.Logout()
         Me.Hide()
         Login.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        P_HOME.Visible = True
+        P_MAIN.Visible = False
+        Lb_Title.Text = "الرئسية"
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim FBOOKS As New FRM_ADDBOKKS()
+        FBOOKS.btnadd.ButtonText = "اضافة"
+        FBOOKS.ID = 0
+        BunifuTransition1.ShowSync(FBOOKS)
+        FBOOKS.Show()
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim FBOOKS = New FRM_ADDSTUDNET()
+        FBOOKS.btnadd.ButtonText = "اضافة"
+        FBOOKS.ID = 0
+        BunifuTransition1.ShowSync(FBOOKS)
+        FBOOKS.Show()
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        'اضافة بيع
+        Dim FSELL As New FRM_MAKESELL()
+            FSELL.btnadd.ButtonText = "اضافة"
+            FSELL.ID = 0
+            BunifuTransition1.ShowSync(FSELL)
+            FSELL.Show()
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        Dim FBOR As New FRM_BRO()
+        FBOR.btnadd.ButtonText = "اضافة"
+        FBOR.ID = 0
+        BunifuTransition1.ShowSync(FBOR)
+        FBOR.Show()
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        Dim FCAT As New FRM_ADDCAT()
+        FCAT.btnadd.ButtonText = "اضافة"
+        FCAT.ID = 0
+        BunifuTransition1.ShowSync(FCAT)
+        FCAT.Show()
     End Sub
 End Class

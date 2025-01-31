@@ -103,6 +103,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -198,6 +199,12 @@
     <Compile Include="PL\FRM_MIAN.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PL\FRM_START.Designer.vb">
+      <DependentUpon>FRM_START.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_START.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -247,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_MIAN.resx">
       <DependentUpon>FRM_MIAN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_START.resx">
+      <DependentUpon>FRM_START.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

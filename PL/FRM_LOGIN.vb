@@ -37,7 +37,7 @@ Public Class FRM_LOGIN
             cmd.Parameters.AddWithValue("@CPASSWORD", password)
             Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
             If count > 0 Then
-                MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim frm As New FRM_MIAN
                 frm.Show()
                 Me.Hide()
@@ -48,4 +48,8 @@ Public Class FRM_LOGIN
 
         End Try
     End Sub
+
+    Friend Shared Function PREM() As String
+        Throw New NotImplementedException()
+    End Function
 End Class
